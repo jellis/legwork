@@ -1,0 +1,147 @@
+/**
+ * The Grid
+ */
+@mixin grid-row($behavior: false) {
+
+    @if $behavior == nest {
+        width: auto;
+        margin-#{$default-float}: -($column-gutter / 2);
+        margin-#{$default-opposite}: -($column-gutter / 2);
+        margin-top: 0;
+        margin-bottom: 0;
+        max-width: none;
+    }
+
+    @else if $behavior == collapse {
+        width: 100%;
+        margin: 0;
+        max-width: $row-width;
+    }
+
+    @else if $behavior == nest-collapse {
+        width: auto;
+        margin: 0;
+        max-width: none;
+    }
+
+    @else {
+        width: 100%;
+        margin-#{$default-float}: auto;
+        margin-#{$default-opposite}: auto;
+        margin-top: 0;
+        margin-bottom: 0;
+        max-width: $row-width;
+    }
+    
+    @include clearfix();
+
+}
+
+@mixin grid-column(
+    $columns:false,
+    $last-column:false,
+    $center:false,
+    $offset:false,
+    $push:false,
+    $pull:false,
+    $collapse:false,
+    $float:true,
+    $position:false) {
+
+    @if $position or $push or $pull {
+        position: relative;
+    }
+
+    @if $collapse {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    @else if $collapse == false {
+        padding-left: $column-gutter / 2;
+        padding-right: $column-gutter / 2;
+    }
+
+    @if $columns {
+        width: grid-calc($columns, $total-columns);
+
+        @if $last-column { float: $default-opposite; }
+    }
+
+    @if $push { #{$default-float}: grid-calc($push, $total-columns); #{$default-opposite}: auto; }
+    @if $pull { #{$default-opposite}: grid-calc($pull, $total-columns); #{$default-float}: auto; }
+
+    @if $float {
+        @if $float == left or $float == true { float: $default-float; }
+        @else if $float == right { float: $default-opposite; }
+        @else { float: none; }
+    }
+
+    @if $center {
+        margin-#{$default-float}: auto;
+        margin-#{$default-opposite}: auto;
+        float: none;
+    }
+
+    @if $offset { margin-#{$default-float}: grid-calc($offset, $total-columns) !important; }
+
+}
+
+@mixin grid-html-classes($size) {
+
+    @for $i from 0 through $total-columns - 1 {
+        .#{$size}-push-#{$i} {
+            @include grid-column($push:$i, $collapse:null, $float: false);
+        }
+        .#{$size}-pull-#{$i} {
+            @include grid-column($pull:$i, $collapse:null, $float:false);
+        }
+    }
+
+    .column, .columns { @include grid-column($columns:false, $position:true); }
+
+    @for $i from 1 through $total-columns {
+        .#{$size}-#{$i} { @include grid-column($columns:$i, $collapse:null, $float:false); }
+    }
+
+    @for $i from 0 through $total-columns - 1 {
+        .#{$size}-offset-#{$i} { @include grid-column($offset:$i, $collapse:null, $float:false); }
+    }
+
+    // In case larger screens want normal
+    // source ordering to be used
+    .#{$size}-reset-order {
+        margin-#{$default-float}: 0;
+        margin-#{$default-opposite}: 0;
+        left: auto;
+        right: auto;
+        float: $default-float;
+    }
+
+    // Centers columns
+    .column.#{$size}-centered, .columns.#{$size}-centered {
+        @include grid-column($center:true, $collapse:null, $float:false);
+    }
+
+    // If larger size returns element to normally justified
+    .column.#{$size}-uncentered, .columns.#{$size}-uncentered {
+        margin-#{$default-float}: 0;
+        margin-#{$default-opposite}: 0;
+        float: $default-float;
+    }
+
+    // Fighting [class*="column"] + [class*="column"]:last-child
+    .column.#{$size}-centered:last-child, .columns.#{$size}-centered:last-child {
+        float: none;
+    }
+
+    // Fighting .column.<previous-size>-centered:last-child
+    .column.#{$size}-uncentered:last-child, .columns.#{$size}-uncentered:last-child{
+        float: $default-float;
+    }
+
+    .column.#{$size}-uncentered.opposite, .columns.#{$size}-uncentered.opposite {
+        float: $default-opposite;
+    }
+
+}

@@ -1,0 +1,37 @@
+// Reusable mixins
+
+// We use this to create equal side border radius on elements.
+// $side - Options: left, right, top, bottom
+@mixin side-radius($side, $radius:$global-radius) {
+    @if ($side == left or $side == right) {
+        border-bottom-#{$side}-radius: $radius;
+        border-top-#{$side}-radius: $radius;
+    } @else {
+        border-#{$side}-left-radius: $radius;
+        border-#{$side}-right-radius: $radius;
+    }
+}
+
+// We use this to control border radius.
+// $radius - Default: $global-radius || 4px
+@mixin radius($radius:$global-radius) {
+    @if $radius {
+        border-radius: $radius;
+    }
+}
+
+// We use this to add transitions to elements
+// $property - Default: all, Options: http://www.w3.org/TR/css3-transitions/#animatable-properties
+// $speed - Default: 300ms
+// $ease - Default:ease-out, Options: http://css-tricks.com/almanac/properties/t/transition-timing-function/
+@mixin single-transition($property:all, $speed:300ms, $ease:ease-out) {
+    transition: $property $speed $ease;
+}
+
+@mixin block-glowing-effect($selector:focus, $fade-time:300ms, $glowing-effect-color:fade-out($primary-color, .25)) {
+    transition: box-shadow $fade-time, border-color $fade-time ease-in-out;
+    &:#{$selector} {
+        box-shadow: 0 0 5px $glowing-effect-color;
+        border-color: $glowing-effect-color;
+    }
+}

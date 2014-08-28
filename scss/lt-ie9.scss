@@ -1,0 +1,61 @@
+@charset "UTF-8";
+@import "compass/css3";
+@import "modular-scale";
+
+@import "functions";
+@import "common/ratios";
+@import "settings";
+@import "mixins/clearfix";
+@import "mixins/grid";
+@import "common/type";
+
+// Just use the "small" size for <IE8
+// Row size is also fixed to 90% of the row-width
+.row {
+    width: #{$row-width * 0.9};
+    .row {
+        width: auto;
+    }
+}
+
+// Float the last one to align the RHS and account for rounding issues
+.column.last-child, .columns.last-child { float: $default-opposite; }
+.column.end, .columns.end { float: $default-float; }
+
+// The order of the classes in the mark-up is important for <=IE8
+@include grid-html-classes($size:small);
+
+@include grid-html-classes($size:medium);
+
+@for $i from 0 through $total-columns - 1 {
+    .push-#{$i} {
+        @include grid-column($push:$i, $collapse:null, $float:false);
+    }
+    .pull-#{$i} {
+        @include grid-column($pull:$i, $collapse:null, $float:false);
+    }
+}
+
+@include grid-html-classes($size:large);
+
+// Resetting header sizes outside of media query - for interNOT Explorer ate
+h1,h2,h3,h4,h5,h6 { line-height: $header-line-height; }
+h1 { font-size: $h1-font-size; }
+h2 { font-size: $h2-font-size; }
+h3 { font-size: $h3-font-size; }
+h4 { font-size: $h4-font-size; }
+h5 { font-size: $h5-font-size; }
+h6 { font-size: $h6-font-size; }
+
+// $sizes: small, medium, large;
+// @each $size in $sizes {
+//     // Fighting [class*="column"] + [class*="column"]:last-child
+//     .column.#{$size}-centered.last-child, .columns.#{$size}-centered.last-child {
+//         float: none;
+//     }
+
+//     // Fighting .column.<previous-size>-centered:last-child
+//     .column.#{$size}-uncentered.last-child, .columns.#{$size}-uncentered.last-child{
+//         float: $default-float;
+//     }
+// }

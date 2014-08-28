@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+    <title>Welcome to Sea-EssEss</title>
+    <!-- Included CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/css/app.css" />
+    <script src="/js/jquery.js"></script>
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="/css/lt-ie9.css" />
+        <script src="/js/lt-ie9.js"></script>
+        <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+    <!--[if lt IE 10]>
+        <script src="/js/lt-ie10.js"></script>
+        <script src="/js/jquery.placeholder.js"></script>
+    <![endif]-->
+    <!-- The below is for example only -->
+</head>
+<body>
+    <div class="row">
+        <div class="medium-12 columns">
+            <form name="my-form">
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" placeholder="A truck is big" />
+                    </div>
+                    <div class="medium-6 columns">
+                        <label for="my-name">My Name</label>
+                        <div class="row collapse">
+                            <div class="small-9 columns">
+                                <input type="text" name="my-name" id="my-name" class="radius" placeholder="Your name" />
+                            </div>
+                            <div class="small-3 columns">
+                                <span class="postfix radius">Label</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <input type="submit" class="button" value="Submit" />
+                        <a href="#" class="button">My Button</a>
+                        <a href="#" class="button secondary round">Round Button</a>
+                        <textarea name="my-comments" rows="6" placeholder="Your comments..."></textarea>
+                    </div>
+                    <div class="medium-6 columns">
+                        <label for="my-select">My Select</label>
+                        <select name="my-select" id="my-select" class="radius">
+                            <option value="">-- Select --</option>
+                            <option value="1">Value 1</option>
+                            <option value="2">Value 2</option>
+                            <option value="3">Value 3</option>
+                            <option value="4">Value 4</option>
+                        </select>
+                        <a href="#" class="button">My Button</a>
+                        <input type="submit" name="some-submit" value="My Button" class="button" />
+                        <button type="submit" name="another-submit">My Button</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <div class="row collapse">
+                            <div class="medium-9 columns">
+                                <input type="text" name="something" class="radius" />
+                            </div>
+                            <div class="medium-3 columns">
+                                <a href="#" class="button postfix radius">Go</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="medium-6 columns">
+                        <div class="row collapse">
+                            <div class="medium-9 columns">
+                                <input type="text" name="something" class="radius" />
+                            </div>
+                            <div class="medium-3 columns">
+                                <button type="submit" name="submit" class="postfix radius">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <div class="row collapse">
+                            <div class="small-9 medium-9 columns">
+                                <input type="text" name="email" class="radius" />
+                            </div>
+                            <div class="small-3 medium-3 columns">
+                                <input type="submit" name="submit" value="Submit" class="postfix button radius" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="medium-6 columns">
+                        <div class="row collapse prefix-radius">
+                            <div class="medium-3 columns">
+                                <input type="submit" name="submit" value="Submit" class="prefix button radius" />
+                            </div>
+                            <div class="medium-9 columns">
+                                <input type="text" name="email" class="radius" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <ul class="button-group">
+                            <li><a href="#" class="button">Button 1</a></li>
+                            <li><a href="#" class="button">Button 2</a></li>
+                            <li><a href="#" class="button">Button 3</a></li>
+                            <li><input type="button" class="button" value="Button 4" /></li>
+                        </ul>
+                    </div>
+                    <div class="medium-6 columns">
+                        <ul class="button-group round even-4">
+                            <li><a href="#" class="button">Button 1</a></li>
+                            <li><a href="#" class="button">Button 2</a></li>
+                            <li><a href="#" class="button">Button 3</a></li>
+                            <li><input type="button" class="button" value="Button 4" /></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="medium-12 columns">
+                        <div class="button-bar">
+                            <ul class="button-group">
+                                <li><a href="#" class="button">Button 1</a></li>
+                                <li><a href="#" class="button">Button 2</a></li>
+                                <li><a href="#" class="button">Button 3</a></li>
+                                <li><input type="button" class="button" value="Button 4" /></li>
+                            </ul>
+                            <ul class="button-group">
+                                <li><a href="#" class="button">Button 1</a></li>
+                                <li><a href="#" class="button">Button 2</a></li>
+                                <li><a href="#" class="button">Button 3</a></li>
+                                <li><input type="button" class="button" value="Button 4" /></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <input type="checkbox" name="blah" value="1" id="blah" />
+                        <label for="blah">Some blah</label><br />
+                        <input type="checkbox" name="blah1" value="2" id="blah1" />
+                        <label for="blah1">Some other blah</label>
+                    </div>
+                    <div class="medium-6 columns">
+                        <input type="radio" name="blah" value="1" id="blahr" />
+                        <label for="blahr">Some blah</label><br />
+                        <input type="radio" name="blah" value="2" id="blahr1" />
+                        <label for="blah1r">Some other blah</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="medium-6 columns error">
+                        <label for="my-error">First Name</label>
+                        <input type="text" id="my-error" name="some-name-1" class="radius" />
+                        <small>This is an error</small>
+                    </div>
+                    <div class="medium-6 columns error">
+                        <label for="my-select">My Select</label>
+                        <select name="my-select" id="my-select" class="radius">
+                            <option value="">-- Select --</option>
+                            <option value="1">Value 1</option>
+                            <option value="2">Value 2</option>
+                            <option value="3">Value 3</option>
+                            <option value="4">Value 4</option>
+                        </select>
+                        <small>Please select something</small>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

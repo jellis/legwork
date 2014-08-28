@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+    <title>Welcome to Sea-EssEss</title>
+    <!-- Included CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/css/app.css" />
+    <script src="/js/jquery.js"></script>
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="/css/lt-ie9.css" />
+        <script src="/js/lt-ie9.js"></script>
+        <script src="/js/html5shiv.js"></script>
+        <script src="/js/jquery.placeholder.js"></script>
+    <![endif]-->
+    <!-- The below is for example only -->
+    <style type="text/css" media="screen">
+        .display .column, .display .columns { background-color: #EEEEEE; }
+        .display .column.dark-grey, .display .columns.dark-grey { background-color: #E1E1E1; }
+        .row.display { border: 1px solid #C6C6C6; margin-bottom: 10px; }
+        .row.display .row { margin-bottom: 0; border: none; }
+        .row.display span { line-height: 32px; }
+    </style>
+    <script type="text/javascript">
+        $().ready(function(){
+            $('.row').find('> .columns:odd').addClass('dark-grey');
+        });
+    </script>
+</head>
+<body>
+    <div class="row"><div class="medium-12 columns"><h3>Columns</h3></div></div>
+    <div class="row display">
+        <div class="medium-1 columns"><span>1</span></div>
+        <div class="medium-11 columns"><span>11</span></div>
+    </div>
+    <div class="row display">
+        <div class="medium-2 columns"><span>2</span></div>
+        <div class="medium-10 columns"><span>10</span></div>
+    </div>
+    <div class="row display">
+        <div class="medium-3 columns"><span>3</span></div>
+        <div class="medium-9 columns"><span>9</span></div>
+    </div>
+    <div class="row display">
+        <div class="medium-4 columns"><span>4</span></div>
+        <div class="medium-8 columns"><span>8</span></div>
+    </div>
+    <div class="row display">
+        <div class="medium-5 columns"><span>5</span></div>
+        <div class="medium-7 columns"><span>7</span></div>
+    </div>
+    <div class="row display">
+        <div class="medium-6 columns"><span>6</span></div>
+        <div class="medium-6 columns"><span>6</span></div>
+    </div>
+    <div class="row display">
+        <div class="medium-7 columns"><span>7</span></div>
+        <div class="medium-5 columns"><span>5</span></div>
+    </div>
+    <div class="row display">
+        <div class="medium-8 columns"><span>8</span></div>
+        <div class="medium-4 columns"><span>4</span></div>
+    </div>
+    <div class="row display">
+        <div class="medium-9 columns"><span>9</span></div>
+        <div class="medium-3 columns"><span>3</span></div>
+    </div>
+    <div class="row display">
+        <div class="medium-10 columns"><span>10</span></div>
+        <div class="medium-2 columns"><span>2</span></div>
+    </div>
+    <div class="row display">
+        <div class="medium-11 columns"><span>11</span></div>
+        <div class="medium-1 columns"><span>1</span></div>
+    </div>
+    <div class="row"><div class="medium-12 columns"><h3>Nested</h3></div></div>
+    <div class="row display">
+        <div class="small-8 columns"><span>8</span>
+            <div class="row">
+                <div class="small-8 columns"><span>8 Nested</span>
+                    <div class="row">
+                        <div class="small-8 columns"><span>8 Nested Again</span></div>
+                        <div class="small-4 columns"><span>4</span></div>
+                    </div>
+                </div>
+                <div class="small-4 columns"><span>4</span></div>
+            </div>
+        </div>
+        <div class="small-4 columns"><span>4</span></div>
+    </div>
+    <div class="row"><div class="medium-12 columns"><h3>Offset</h3></div></div>
+    <div class="row display">
+        <div class="medium-1 columns"><span>1</span></div>
+        <div class="medium-10 medium-offset-1 columns"><span>10 offset 1</span></div>
+    </div>
+    <div class="row display">
+        <div class="medium-1 columns"><span>1</span></div>
+        <div class="medium-9 medium-offset-2 columns"><span>9 offset 1</span></div>
+    </div>
+    <div class="row display">
+        <div class="medium-1 columns"><span>1</span></div>
+        <div class="medium-8 medium-offset-3 columns"><span>8 offset 1</span></div>
+    </div>
+    <div class="row"><div class="medium-12 columns"><h3>Unfinished rows</h3></div></div>
+    <div class="row display">
+        <div class="medium-3 columns"><span>3</span></div>
+        <div class="medium-3 columns"><span>3</span></div>
+        <div class="medium-3 columns"><span>3</span></div>
+    </div>
+    <div class="row display">
+        <div class="medium-3 columns"><span>3</span></div>
+        <div class="medium-3 columns"><span>3</span></div>
+        <div class="medium-3 columns end"><span>3 end</span></div>
+    </div>
+    <div class="row"><div class="medium-12 columns"><h3>Centering</h3></div></div>
+    <div class="row display">
+        <div class="medium-3 medium-centered columns"><span>3 centered</span></div>
+    </div>
+    <div class="row display">
+        <div class="medium-6 medium-centered columns"><span>6 centered</span></div>
+    </div>
+    <div class="row display">
+        <div class="small-6 small-centered medium-uncentered columns"><span>6 centered small</span></div>
+    </div>
+    <div class="row"><div class="medium-12 columns"><h3>Source Ordering</h3></div></div>
+    <div class="row display">
+        <div class="small-10 small-push-2 columns"><span>10</span></div>
+        <div class="small-2 small-pull-10 columns"><span>2, last</span></div>
+    </div>
+    <div class="row display">
+        <div class="large-9 large-push-3 columns"><span>9</span></div>
+        <div class="large-3 large-pull-9 columns"><span>3, last</span></div>
+    </div>
+    <div class="row display">
+        <div class="large-8 large-push-4 columns"><span>8</span></div>
+        <div class="large-4 large-pull-8 columns"><span>4, last</span></div>
+    </div>
+    <div class="row display">
+        <div class="small-5 small-push-7 medium-7 medium-push-5 columns"><span>7</span></div>
+        <div class="small-7 small-pull-5 medium-5 medium-pull-7 columns"><span>5, last</span></div>
+    </div>
+    <div class="row display">
+        <div class="medium-6 medium-push-6 columns"><span>6</span></div>
+        <div class="medium-6 medium-pull-6 columns"><span>6, last</span></div>
+    </div>
+</body>
+</html>

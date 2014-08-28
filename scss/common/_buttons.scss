@@ -1,0 +1,87 @@
+@import "mixins/buttons";
+
+// We use these to build padding for buttons.
+$button-tny: 7px !default;
+$button-sml: 9px !default;
+$button-med: 12px !default;
+$button-lrg: 16px !default;
+
+// We use this to control the display property.
+$button-display: inline-block !default;
+$button-margin-bottom: 16px !default; // Should be the same as $form-spacing
+
+// We use these to control button text styles.
+$button-font-family: $body-font-family !default;
+$button-font-color: #FFF !default;
+$button-font-color-alt: #333 !default;
+$button-font-tny: 10px !default;
+$button-font-sml: 11px !default;
+$button-font-med: 14px !default;
+$button-font-lrg: 17px !default;
+$button-font-weight: normal !default;
+$button-font-align: center !default;
+
+// We use these to control various hover effects.
+$button-function-factor: -20% !default;
+
+// We use these to control button border styles.
+// TODO: Strip out the border stuff... I don't think it gets used
+$button-border-width: 0 !default;
+$button-border-style: solid !default;
+$button-bg-color: $primary-color !default;
+$button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor) !default;
+$button-border-color: $button-bg-hover !default;
+$secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor) !default;
+$secondary-button-border-color: $secondary-button-bg-hover !default;
+$success-button-bg-hover: scale-color($success-color, $lightness: $button-function-factor) !default;
+$success-button-border-color: $success-button-bg-hover !default;
+$alert-button-bg-hover: scale-color($alert-color, $lightness: $button-function-factor) !default;
+$alert-button-border-color: $alert-button-bg-hover !default;
+
+// We use this to set the default radius used throughout the core.
+$button-radius: $global-radius !default;
+$button-round: $global-rounded !default;
+
+// We use this to set default opacity and cursor for disabled buttons.
+$button-disabled-opacity: 0.7 !default;
+$button-disabled-cursor: default !default;
+
+button, .button {
+    @include button-base;
+    @include button-size;
+    @include button-style;
+
+    @include single-transition(background-color);
+
+    &.secondary { @include button-style($bg:$secondary-color, $bg-hover:$secondary-button-bg-hover, $border-color:$secondary-button-border-color); }
+    &.success   { @include button-style($bg:$success-color, $bg-hover:$success-button-bg-hover, $border-color:$success-button-border-color); }
+    &.alert     { @include button-style($bg:$alert-color, $bg-hover:$alert-button-bg-hover, $border-color:$alert-button-border-color); }
+
+    &.large  { @include button-size($padding:$button-lrg); }
+    &.small  { @include button-size($padding:$button-sml); }
+    &.tiny   { @include button-size($padding:$button-tny); }
+    &.expand { @include button-size($padding:null,$full-width:true); }
+
+    &.left-align  { text-align: left; text-indent: rem-calc(12); }
+    &.right-align { text-align: right; padding-right: rem-calc(12); }
+
+    &.radius { @include button-style($bg:false, $radius:true); }
+    &.round  { @include button-style($bg:false, $radius:$button-round); }
+
+    &.disabled, &[disabled] { @include button-style($bg:$button-bg-color, $disabled:true, $bg-hover:$button-bg-hover, $border-color:$button-border-color);
+        &.secondary { @include button-style($bg:$secondary-color, $disabled:true, $bg-hover:$secondary-button-bg-hover, $border-color:$secondary-button-border-color); }
+        &.success { @include button-style($bg:$success-color, $disabled:true, $bg-hover:$success-button-bg-hover, $border-color:$success-button-border-color); }
+        &.alert { @include button-style($bg:$alert-color, $disabled:true, $bg-hover:$alert-button-bg-hover, $border-color:$alert-button-border-color); }
+    }
+}
+
+
+button::-moz-focus-inner { border: 0; padding: 0; }
+
+@media #{$medium-up} {
+    button, .button {
+        @include button-base($style:false, $display:inline-block);
+        @include button-size($padding:false, $full-width:false);
+    }
+}
+
