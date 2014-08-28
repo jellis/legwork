@@ -7,6 +7,7 @@ $default-opposite: right !default;
 $text-direction: ltr !default;
 
 // Base body settings
+$base-font-size: 14px !default;
 $body-bg: #FFF;
 $body-font-color: #222;
 $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
@@ -52,9 +53,3 @@ $xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max
 
 $xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})";
 $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})";
-
-// Modular scale settings
-$ms-ratio: $golden !default;
-$base-font-size: 14px !default;
-$important-mod-num: 44px !default;
-$ms-base: $base-font-size $important-mod-num;

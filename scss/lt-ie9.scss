@@ -1,13 +1,12 @@
 @charset "UTF-8";
 @import "compass/css3";
-@import "modular-scale";
 
+@import "mixins/common";
 @import "functions";
-@import "common/ratios";
 @import "settings";
-@import "mixins/clearfix";
 @import "mixins/grid";
 @import "common/type";
+@import "common/tables";
 
 // Just use the "small" size for <IE8
 // Row size is also fixed to 90% of the row-width
@@ -47,15 +46,5 @@ h4 { font-size: $h4-font-size; }
 h5 { font-size: $h5-font-size; }
 h6 { font-size: $h6-font-size; }
 
-// $sizes: small, medium, large;
-// @each $size in $sizes {
-//     // Fighting [class*="column"] + [class*="column"]:last-child
-//     .column.#{$size}-centered.last-child, .columns.#{$size}-centered.last-child {
-//         float: none;
-//     }
-
-//     // Fighting .column.<previous-size>-centered:last-child
-//     .column.#{$size}-uncentered.last-child, .columns.#{$size}-uncentered.last-child{
-//         float: $default-float;
-//     }
-// }
+// Get zebra rows happening - because IE sucks wang
+table tr.even td, table tr.alt td, table tr.even th, table tr.alt th { background-color: $table-even-row-bg; }
