@@ -1,9 +1,9 @@
-## SeaEssEss
+### SeaEssEss
 
 Light(er) CSS framework initially based on an amalgam of Zurb Foundation 3 and 5... includes IE8 support and some
 sexy things for forms etc.
 
-## Dependencies
+### Dependencies
 - SASS
 - Compass
 
