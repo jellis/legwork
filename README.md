@@ -13,6 +13,7 @@ sexy things for forms etc.
 - Modals (no IE8 animation because... IE8)
 - Alerts (user messages)
 - Flex Video player - AWESOME!
+- Panels... just because
 
 ### TODO
 - Ability to include web fonts

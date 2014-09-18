@@ -466,3 +466,26 @@ $flex-video-margin-bottom: 16px !default;
 
 // We use this to control widescreen bottom padding
 $flex-video-widescreen-padding-bottom: 56.55% !default;
+
+/**
+ * Panels settings
+ */
+// We use these to control the background and border styles
+$panel-bg: scale-color(#fff, $lightness: -5%) !default;
+$panel-border-style: solid !default;
+$panel-border-size: 1px !default;
+
+// We use this % to control how much we darken things on hover
+$panel-function-factor: -11% !default;
+$panel-border-color: scale-color($panel-bg, $lightness: $panel-function-factor) !default;
+
+// We use these to set default inner padding and bottom margin
+$panel-margin-bottom: 20px !default;
+$panel-padding: 20px !default;
+
+// We use these to set default font colors
+$panel-font-color: #333 !default;
+$panel-font-color-alt: #fff !default;
+
+$panel-header-adjust: true !default;
+$callout-panel-link-color: $primary-color !default;

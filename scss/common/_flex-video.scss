@@ -1,3 +1,5 @@
+@import "settings";
+
 @mixin flex-video-container {
     position: relative;
     padding-top: $flex-video-padding-top;
