@@ -12,6 +12,7 @@ sexy things for forms etc.
 ### Items included thus far
 - Modals (no IE8 animation because... IE8)
 - Alerts (user messages)
+- Flex Video player
 
 ### TODO
 - Ability to include web fonts

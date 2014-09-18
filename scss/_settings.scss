@@ -455,3 +455,14 @@ $reveal-border-color: #666 !default;
 
 $reveal-modal-class: "modal" !default;
 $close-reveal-modal-class: "close-modal" !default;
+
+/**
+ * Flex Video settings
+ */
+// We use these to control video container padding and margins
+$flex-video-padding-top: 25px !default;
+$flex-video-padding-bottom: 67.5% !default;
+$flex-video-margin-bottom: 16px !default;
+
+// We use this to control widescreen bottom padding
+$flex-video-widescreen-padding-bottom: 56.55% !default;
