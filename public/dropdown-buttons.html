@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+    <title>Welcome to Sea-EssEss</title>
+    <!-- Included CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/css/app.css" />
+    <script src="/js/jquery.js"></script>
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="/css/lt-ie9.css" />
+        <script src="/js/lt-ie9.js"></script>
+        <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+    <!--[if lt IE 10]>
+        <script src="/js/lt-ie10.js"></script>
+        <script src="/js/jquery.placeholder.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="row">
+        <div class="medium-6 columns">
+            <button href="#" data-dropdown="my-dropdown" aria-expanded="false" class="button dropdown">Dropdown Button</button>
+            <ul id="my-dropdown" data-dropdown-content class="f-dropdown">
+                <li><a href="#">This is a link</a></li>
+                <li><a href="#">This is another</a></li>
+                <li><a href="#">Yet another</a></li>
+            </ul>
+        </div>
+        <div class="medium-6 columns">
+            <button href="#" data-dropdown="my-dropdown-2" aria-expanded="false" class="button dropdown radius">Dropdown Button</button>
+            <ul id="my-dropdown-2" data-dropdown-content class="f-dropdown">
+                <li><a href="#">This is a link</a></li>
+                <li><a href="#">This is another</a></li>
+                <li><a href="#">Yet another</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-3 columns">
+            <button href="#" data-dropdown="my-dropdown-3" aria-expanded="false" class="button dropdown round">Dropdown Button</button>
+            <ul id="my-dropdown-3" data-dropdown-content class="f-dropdown">
+                <li><a href="#">This is a link</a></li>
+                <li><a href="#">This is another</a></li>
+                <li><a href="#">Yet another</a></li>
+            </ul>
+        </div>
+        <div class="medium-3 columns">
+            <button href="#" data-dropdown="my-dropdown-4" aria-expanded="false" class="button dropdown secondary">Dropdown Button</button>
+            <ul id="my-dropdown-4" data-dropdown-content class="f-dropdown">
+                <li><a href="#">This is a link</a></li>
+                <li><a href="#">This is another</a></li>
+                <li><a href="#">Yet another</a></li>
+            </ul>
+        </div>
+        <div class="medium-3 columns">
+            <button href="#" data-dropdown="my-dropdown-5" aria-expanded="false" class="button dropdown alert">Dropdown Button</button>
+            <ul id="my-dropdown-5" data-dropdown-content class="f-dropdown">
+                <li><a href="#">This is a link</a></li>
+                <li><a href="#">This is another</a></li>
+                <li><a href="#">Yet another</a></li>
+            </ul>
+        </div>
+        <div class="medium-3 columns">
+            <button href="#" data-dropdown="my-dropdown-6" aria-expanded="false" class="button large expand dropdown">Dropdown Button</button>
+            <ul id="my-dropdown-6" data-dropdown-content class="f-dropdown">
+                <li><a href="#">This is a link</a></li>
+                <li><a href="#">This is another</a></li>
+                <li><a href="#">Yet another</a></li>
+            </ul>
+        </div>
+    </div>
+    <script src="/js/seaessess.js"></script>
+    <script src="/js/seaessess.dropdown.js"></script>
+    <script src="/js/fastclick.js"></script>
+    <script>$(document).foundation();</script>
+</body>
+</html>

@@ -16,6 +16,7 @@ sexy things for forms etc.
 - Panels... just because
 - Pagination
 - Dropdowns
+- Button dropdowns
 
 ### TODO
 - Ability to include web fonts
