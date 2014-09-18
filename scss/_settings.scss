@@ -581,10 +581,10 @@ $f-dropdown-radius: $global-radius !default;
 $dropdown-button-pip-color: #FFFFFF !default;
 $dropdown-button-pip-color-alt: #333333 !default;
 
-$button-pip-tny: 6px !default;
-$button-pip-sml: 7px !default;
-$button-pip-med: 9px !default;
-$button-pip-lrg: 11px !default;
+$button-pip-tny: 4px !default;
+$button-pip-sml: 6px !default;
+$button-pip-med: 8px !default;
+$button-pip-lrg: 10px !default;
 
 // We use these to style tiny dropdown buttons
 $dropdown-button-padding-tny: $button-pip-tny * 7 !default;
@@ -609,3 +609,42 @@ $dropdown-button-padding-lrg: $button-pip-lrg * 5 + 3px !default;
 $dropdown-button-pip-size-lrg: $button-pip-lrg - 6px !default;
 $dropdown-button-pip-opposite-lrg: $button-pip-lrg * 2.5 !default;
 $dropdown-button-pip-top-lrg: -$button-pip-lrg / 2 + 3px !default;
+
+/**
+ * Split button settings
+ */
+// We use these to control different shared styles for Split Buttons
+$split-button-function-factor: 10% !default;
+$split-button-pip-color: #FFFFFF !default;
+$split-button-pip-color-alt: #333333 !default;
+$split-button-active-bg-tint: rgba(0,0,0,0.1) !default;
+
+// We use these to control tiny split buttons
+$split-button-padding-tny: $button-pip-tny * 10 !default;
+$split-button-span-width-tny: $button-pip-tny * 7 !default;
+$split-button-pip-size-tny: $button-pip-tny !default;
+$split-button-pip-top-tny: $button-pip-tny * 2 !default;
+$split-button-pip-default-float-tny: -4px !default;
+
+// We use these to control small split buttons
+$split-button-padding-sml: $button-pip-sml * 10 !default;
+$split-button-span-width-sml: $button-pip-sml * 6 !default;
+$split-button-pip-size-sml: $button-pip-sml !default;
+$split-button-pip-top-sml: $button-pip-sml * 1.5 !default;
+$split-button-pip-default-float-sml: -6px !default;
+
+// We use these to control medium split buttons
+$split-button-padding-med: $button-pip-med * 9 !default;
+$split-button-span-width-med: $button-pip-med * 5 !default;
+$split-button-pip-size-med: $button-pip-med - 3px !default;
+$split-button-pip-top-med: $button-pip-med * 1.5 !default;
+$split-button-pip-default-float-med: -6px !default;
+
+// We use these to control large split buttons
+$split-button-padding-lrg: $button-pip-lrg * 8 !default;
+$split-button-span-width-lrg: $button-pip-lrg * 4.5 !default;
+$split-button-pip-size-lrg: $button-pip-lrg - 6px !default;
+$split-button-pip-top-lrg: $button-pip-lrg + 5px !default;
+$split-button-pip-default-float-lrg: -6px !default;
+
+

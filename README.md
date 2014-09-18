@@ -17,6 +17,7 @@ sexy things for forms etc.
 - Pagination
 - Dropdowns
 - Button dropdowns
+- Split buttons (with dropdown)
 
 ### TODO
 - Ability to include web fonts
