@@ -75,31 +75,48 @@
                 &.current { @include pagination-current-item(); }
             }
         }
+        @media #{$small-only} {
+            li {
+                font-size: $pagination-small-font-size;
+                margin-#{$default-opposite}: $pagination-small-li-margin;
+                a { padding: $pagination-small-link-pad; }
+            }
+        }
     }
 
     // Left or center align the li elements
+    // li {
+    //     @if $center {
+    //         float: none;
+    //         display: inline-block;
+    //     } @else {
+    //         float: $pagination-li-float;
+    //         display: block;
+    //     }
+    // }
     li {
-        @if $center {
-            float: none;
-            display: inline-block;
-        } @else {
-            float: $pagination-li-float;
-            display: block;
-        }
+        float: $pagination-li-float;
+        display: block;
     }
 }
 
 @include exports("pagination") {
     ul.pagination {
         @include pagination;
+        &.centered {
+            float: left; position: relative; left: 50%;
+            li {
+                position: relative; right: 50%;
+            }
+        }
     }
 
     /* Pagination centred wrapper */
-    .pagination-centered {
-        @include pagination-container(true);
+    // .pagination-centered {
+    //     @include pagination-container(true);
 
-        ul.pagination {
-            @include pagination(true, false);
-        }
-    }
+    //     ul.pagination {
+    //         @include pagination(true, false);
+    //     }
+    // }
 }
