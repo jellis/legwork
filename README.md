@@ -9,6 +9,10 @@ sexy things for forms etc.
 
 ... that's pretty much it at this stage.
 
+### Items included thus far
+- Modals (no IE8 animation because... IE8)
+- Alerts (user messages)
+
 Keep an eye out for more things to come which include: -
 - Off Canvas menu for mobile/table devices
 - Modals
