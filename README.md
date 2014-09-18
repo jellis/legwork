@@ -14,6 +14,7 @@ sexy things for forms etc.
 - Alerts (user messages)
 - Flex Video player - AWESOME!
 - Panels... just because
+- Pagination
 
 ### TODO
 - Ability to include web fonts
