@@ -1,0 +1,154 @@
+@import "settings";
+
+@mixin visibility-loop {
+
+    @each $_current in $visibility-breakpoint-sizes {
+
+        $_current-index: index($visibility-breakpoint-sizes, $_current);
+
+        $visibility-show: ();
+        $visibility-none: ();
+
+        @each $_compare in $visibility-breakpoint-sizes {
+
+            $_compare-index: index($visibility-breakpoint-sizes, $_compare);
+
+            @if  $_compare-index == $_current-index  {
+                $visibility-show: push($visibility-show, '.show-for-#{$_compare}-only');
+                $visibility-show: push($visibility-show, '.show-for-#{$_compare}-up');
+                $visibility-none: push($visibility-none, '.hide-for-#{$_compare}-only');
+                $visibility-none: push($visibility-none, '.hide-for-#{$_compare}-up');
+            } @else if $_compare-index < $_current-index {
+                $visibility-show: push($visibility-show, '.hide-for-#{$_compare}-only');
+                $visibility-show: push($visibility-show, '.show-for-#{$_compare}-up');
+                $visibility-none: push($visibility-none, '.show-for-#{$_compare}-only');
+                $visibility-none: push($visibility-none, '.hide-for-#{$_compare}-up');
+            } @else {
+                $visibility-show: push($visibility-show, '.hide-for-#{$_compare}-only');
+                $visibility-show: push($visibility-show, '.hide-for-#{$_compare}-up');
+                $visibility-none: push($visibility-none, '.show-for-#{$_compare}-only');
+                $visibility-none: push($visibility-none, '.show-for-#{$_compare}-up');
+            }
+
+        }
+
+        /* #{$_current} displays - SeaEssEss */
+        @media #{nth($visibility-breakpoint-queries, index($visibility-breakpoint-sizes, $_current))} {
+            @include visibility-types-loop($visibility-types, $visibility-show, $visibility-none);
+        }
+
+        // Just for internet explorer - defaults to medium
+        @if ($_current == medium) {
+            .lt-ie9 {
+                @include visibility-types-loop($visibility-types, $visibility-show, $visibility-none);
+            }
+        }
+
+    }
+
+}
+
+@mixin visibility-types-loop($types, $shown, $hidden) {
+    @each $type in $types {
+        @include visibility-types($shown, $hidden, $type);
+    }
+}
+
+// Loop through all the classes and concat display style class
+@mixin visibility-types($classes-shown, $classes-hidden, $display:block) {
+    $shown-classes: ();
+    $hidden-classes: ();
+    @each $item in $classes-shown {
+        $shown-classes: append($shown-classes, $item + '.vis-' + $display, comma);
+        @if $display == block {
+            $shown-classes: append($shown-classes, $item, comma);
+        }
+    }
+    // Specificity dictates we must create the opposite classes for hidden
+    @each $item in $classes-hidden {
+        $hidden-classes: append($hidden-classes, $item + '.vis-' + $display, comma);
+        @if $display == block {
+            $hidden-classes: append($hidden-classes, $item, comma);
+        }
+    }
+    #{$shown-classes} { display: $display !important; }
+    #{$hidden-classes} { display: none !important; }
+}
+
+@mixin orientation-loop($types, $orientation:landscape) {
+    $show-classes: ();
+    $hide-classes: ();
+    @if $orientation == landscape {
+        $show-classes: show-for-landscape, hide-for-portrait;
+        $hide-classes: hide-for-landscape, show-for-portrait;
+    } @else {
+        $show-classes: show-for-portrait, hide-for-landscape;
+        $hide-classes: hide-for-portrait, show-for-landscape;
+    }
+
+    @each $type in $types {
+        $output-show: ();
+        $output-hide: ();
+        // The ones to show
+        @each $show in $show-classes {
+            $output-show: append($output-show, '.' + $show + '.vis-' + $type, comma);
+            @if $type == block {
+                $output-show: append($output-show, '.' + $show, comma);
+            }
+        }
+        #{$output-show} { display: $type !important; }
+
+        // The ones to hide
+        @each $hide in $hide-classes {
+            $output-hide: append($output-hide, '.' + $hide + '.vis-' + $type, comma);
+            @if $type == block {
+                $output-hide: append($output-hide, '.' + $hide, comma);
+            }
+        }
+        #{$output-hide} { display: none !important; }
+
+    }
+}
+
+@mixin touch-loop($types) {
+    @each $type in $types {
+        $output-show: ();
+        $output-hide: ();
+        
+        // Without touch
+        $output-show: append($output-show, '.hide-for-touch.vis-' + $type, comma);
+        $output-hide: append($output-hide, '.show-for-touch.vis-' + $type, comma);
+        @if $type == block {
+            $output-show: append($output-show, '.hide-for-touch', comma);
+            $output-hide: append($output-hide, '.show-for-touch', comma);
+        }
+
+        // With touch
+        $output-show: append($output-show, '.touch .show-for-touch.vis-' + $type, comma);
+        $output-hide: append($output-hide, '.touch .hide-for-touch.vis-' + $type, comma);
+        @if $type == block {
+            $output-show: append($output-show, '.touch .show-for-touch', comma);
+            $output-hide: append($output-hide, '.touch .hide-for-touch', comma);
+        }
+        #{$output-show} { display: $type !important; }
+        #{$output-hide} { display: none !important; }
+    }
+}
+
+/* Visibility */
+@include exports("visibility") {
+
+    @include visibility-loop;
+
+    // Orientation display
+    @include orientation-loop($visibility-types);
+    @media #{$portrait} {
+        @include orientation-loop($visibility-types, portrait);
+    }
+    @media #{$landscape} {
+        @include orientation-loop($visibility-types, landscape);
+    }
+
+    @include touch-loop($visibility-types);
+
+}

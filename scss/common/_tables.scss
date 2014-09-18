@@ -1,44 +1,59 @@
-@import "mixins/tables";
+@import "settings";
 
-// These control the background color for the table and even rows
-$table-bg: #FFFFFF !default;
-$table-even-row-bg: #F9F9F9 !default; // Also replicated in lt-ie9.scss - upate there
+@mixin table {
+    background: $table-bg;
+    margin-bottom: $table-margin-bottom;
+    border: $table-border-style $table-border-size $table-border-color;
+    table-layout: fixed;
+    width: 100% !important;
 
-// These control the table cell border style
-$table-border-style: solid !default;
-$table-border-size: 1px !default;
-$table-border-color: #DDDDDD !default;
+    caption {
+        background: $table-caption-bg;
+        color: $table-caption-font-color;
+        font-size: $table-caption-font-size;
+        font-weight: $table-caption-font-weight;
+    }
 
-// These control the table head styles
-$table-head-bg: #F5F5F5 !default;
-$table-head-font-size: 14 !default;
-$table-head-font-color: #222222 !default;
-$table-head-font-weight: bold !default;
-$table-head-padding: 8px 10px 10px !default;
+    thead {
+        background: $table-head-bg;
+        tr {
+            th, td {
+                padding: $table-head-padding;
+                font-size: $table-head-font-size;
+                font-weight: $table-head-font-weight;
+                color: $table-head-font-color;
+            }
+        }
+    }
 
-// These control the table foot styles
-$table-foot-bg: $table-head-bg !default;
-$table-foot-font-size: $table-head-font-size !default;
-$table-foot-font-color: $table-head-font-color !default;
-$table-foot-font-weight: $table-head-font-weight !default;
-$table-foot-padding: $table-head-padding !default;
+    tfoot {
+        background: $table-foot-bg;
+        tr {
+            td, th {
+                padding: $table-foot-padding;
+                font-size: $table-foot-font-size;
+                font-weight: $table-foot-font-weight;
+                color: $table-foot-font-color;
+            }
+        }
+    }
 
-// These control the caption
-$table-caption-bg: transparent !default;
-$table-caption-font-color: $table-head-font-color !default;
-$table-caption-font-size: 16px !default;
-$table-caption-font-weight: bold !default;
+    tr {
+        td, th {
+            padding: $table-row-padding;
+            font-size: $table-row-font-size;
+            color: $table-row-font-color;
+            text-align: $default-float;
+        }
+        &.even, &.alt, &:nth-of-type(even) { background: $table-even-row-bg; }
+    }
 
-// These control the row padding and font styles
-$table-row-padding: 9px 10px !default;
-$table-row-font-size: 14px !default;
-$table-row-font-color: #222222 !default;
-$table-line-height: 18px !default;
+    thead tr th, thead tr td, tfoot tr th, tfoot tr td, tbody tr th, tbody tr td, tr td {
+        display: $table-display; line-height: $table-line-height;
+    }
+}
 
-// These are for controlling the display and margin of tables
-$table-display: table-cell !default;
-$table-margin-bottom: 20px !default;
-
+/* Tables */
 @include exports("tables") {
     table {
         @include table;

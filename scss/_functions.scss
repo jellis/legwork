@@ -18,3 +18,49 @@
 @function grid-calc($colNumber, $totalColumns) {
     @return percentage($colNumber / $totalColumns);
 }
+
+// Proxies the "append" functionality
+@function push($_obj, $_val, $_style:comma) {
+    @return append($_obj, ($_val), $_style);
+}
+
+@function flatten($list) {
+    $result: ();
+    @each $item in $list {
+        @if length($item) > 1 {
+            @debug 'List has length of more than one';
+            $flatten: flatten($item);
+            
+            @each $i in $flatten {
+                $result: append($result, $i, comma);
+            }
+        } @else {
+            @debug type-of($item);
+            $result: append($result, $item, comma);
+        }
+    }
+    @return $result;
+}
+
+@function flatten-list( $list )
+{
+    $normalised : ();
+
+    @if $list != null {
+        @if type-of( $list ) == list {
+            @each $item in $list {
+                @if $item == null {
+                    $item : "null";
+                }
+
+                $normalised : join( $normalised, flatten-list( $item ), comma );
+            }
+        }
+    }
+
+    @else {
+        $list : "null";
+    }
+
+    @return if( $normalised == (), $list, $normalised );
+}

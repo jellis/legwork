@@ -1,77 +1,241 @@
-@import "mixins/forms";
+@import "settings";
 
-// We use this to set the base for lots of form spacing and positioning styles
-$form-spacing: 16px !default;
+@mixin form-row-base {
+    .row { margin: 0 -($form-spacing / 2);
+        .column, .columns { padding: 0 $form-spacing / 2; }
 
-// We use these to style the labels in different ways
-$form-label-pointer: pointer !default;
-$form-label-font-size: $base-font-size !default;
-$form-label-font-weight: normal !default;
-$form-label-line-height: 1.5 !default;
-$form-label-font-color: scale-color(#000, $lightness: 30%) !default;
-$form-label-small-transform: capitalize !default;
-$form-label-bottom-margin: 0 !default;
-$input-font-family: inherit !default;
-$input-font-color: rgba(0,0,0,0.75) !default;
-$input-font-size: $base-font-size !default;
-$input-bg-color: #FFF !default;
-$input-focus-bg-color: scale-color(#FFF, $lightness: -2%) !default;
-$input-border-color: scale-color(#FFF, $lightness: -20%) !default;
-$input-focus-border-color: scale-color(#FFF, $lightness: -40%) !default;
-$input-border-style: solid !default;
-$input-border-width: 1px !default;
-$input-border-radius: $global-radius !default;
-$input-disabled-bg: #DDD !default;
-$input-disabled-cursor: default !default;
-$input-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1) !default;
-$input-include-glowing-effect: true !default;
-$input-placeholder-font-color: #C1C1C1 !default;
+        &.collapse { margin: 0;
+            .column, .columns {
+                padding: 0;
+                &:last-child { float: left; } // Combatting white line in Safari
+            }
+            //input { @include side-radius($default-opposite, 0); }
+            #{$all-text-inputs} { @include side-radius($default-opposite, 0); }
+        }
+    }
+    input.column, input.columns, textarea.column, textarea.columns {
+        padding-#{$default-opposite}: $form-spacing / 2;
+    }
+}
 
-// We use these to style the fieldset border and spacing.
-$fieldset-border-style: solid !default;
-$fieldset-border-width: 1px !default;
-$fieldset-border-color: #DDD !default;
-$fieldset-padding: 20px !default;
-$fieldset-margin: 18px 0 !default;
+@mixin form-element {
+    background-color: $input-bg-color;
+    font-family: $input-font-family;
+    border: $input-border-width $input-border-style $input-border-color;
+    box-shadow: $input-box-shadow;
+    color: $input-font-color;
+    display: block;
+    font-size: $input-font-size;
+    margin: 0 0 $form-spacing 0;
+    padding: $form-spacing / 2;
+    height: ($input-font-size + ($form-spacing * 1.5) - 1);
+    width: 100%;
 
-// We use these to style the legends when you use them
-$legend-bg: #FFF !default;
-$legend-font-weight: bold !default;
-$legend-padding: 0 3px !default;
+    @include box-sizing(border-box);
+    @if $input-include-glowing-effect {
+        @include block-glowing-effect(focus, $glowing-effect-fade-time, $glowing-effect-color);
+    }
 
-// We use these to style the prefix and postfix input elements
-$input-prefix-bg: scale-color(#FFF, $lightness: -5%) !default;
-$input-prefix-border-color: scale-color(#FFF, $lightness: -20%) !default;
-$input-prefix-border-size: 1px !default;
-$input-prefix-border-type: solid !default;
-$input-prefix-overflow: hidden !default;
-$input-prefix-font-color: #333 !default;
-$input-prefix-font-color-alt: #FFF !default;
+    &:focus {
+        background: $input-focus-bg-color;
+        border-color: $input-focus-border-color;
+        outline: none;
+    }
 
-// We use this setting to turn on/off HTML5 number spinners (the up/down arrows)
-$input-number-spinners: true !default;
+    &:disabled {
+        background-color: $input-disabled-bg;
+        cursor: $input-disabled-cursor;
+    }
 
-// We use these to style the error states for inputs and labels
-$input-error-message-padding: 6px 9px 6px 9px !default;
-$input-error-message-top: 0 !default;
-$input-error-message-font-size: 80% !default;
-$input-error-message-font-weight: normal !default;
-$input-error-message-font-style: normal !default;
-$input-error-message-font-color: #FFF !default;
-$input-error-message-font-color-alt: #333 !default;
+    &[disabled], &[readonly], fieldset[disabled] & {
+        background-color: $input-disabled-bg;
+        cursor: $input-disabled-cursor;
+    }
+}
 
-// We use this to style the glowing effect of inputs when focused
-$glowing-effect-fade-time: 0.45s !default;
-$glowing-effect-color: $input-focus-border-color !default;
+@mixin form-label($alignment:false, $base-style:true) {
+    @if $base-style {
+        font-size: $form-label-font-size;
+        color: $form-label-font-color;
+        cursor: $form-label-pointer;
+        display: block;
+        font-weight: $form-label-font-weight;
+        line-height: $form-label-line-height;
+        margin-bottom: $form-label-bottom-margin;
+    }
 
-// Select variables
-$select-bg-color: #FFFFFF !default;
-$select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%) !default;
+    @if $alignment == right {
+        float: none !important;
+        text-align: right;
+    }
+    @else if $alignment == inline {
+        margin: 0 0 $form-spacing 0;
+        padding: $form-spacing / 2 + $input-border-width 0;
+    }
+}
 
-// All text inputs
-$all-text-inputs: "input[type=\"text\"], input[type=\"password\"], input[type=\"date\"], input[type=\"datetime\"], input[type=\"datetime-local\"], input[type=\"month\"], input[type=\"week\"], input[type=\"email\"], input[type=\"number\"], input[type=\"search\"], input[type=\"tel\"], input[type=\"time\"], input[type=\"url\"], input[type=\"color\"]";
+@mixin prefix-postfix-base {
+    display: block;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-style: $input-prefix-border-type;
+    border-width: $input-prefix-border-size;
+    overflow: $input-prefix-overflow;
+    font-size: $form-label-font-size;
+    height: ($input-font-size + ($form-spacing * 1.5) - 1);
+    line-height: ($input-font-size + ($form-spacing * 1.5) - 1);
+}
 
-// Let's do this
+@mixin prefix($bg:$input-prefix-bg, $border:$input-prefix-border-color, $is-button:false) {
+    @if $bg {
+        $bg-lightness: lightness($bg);
+        background: $bg;
+        border-#{$default-opposite}: none;
+
+        // Control the font color based on background brightness
+        @if $bg-lightness > 70% or $bg == yellow { color: $input-prefix-font-color; }
+        @else { color: $input-prefix-font-color-alt; }
+    }
+
+    @if $border {
+        border-color: $border;
+    }
+
+    @if $is-button {
+        padding-#{$default-float}: 0;
+        padding-#{$default-opposite}: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        text-align: center;
+        line-height: 34px;
+        border: none;
+    }
+}
+
+@mixin postfix($bg:$input-prefix-bg, $border:$input-prefix-border-color, $is-button:false) {
+    @if $bg {
+        $bg-lightness: lightness($bg);
+        background: $bg;
+        border-#{$default-float}: none;
+
+        // Control the font color based on background brightness
+        @if $bg-lightness > 70% or $bg == yellow { color: $input-prefix-font-color; }
+        @else { color: $input-prefix-font-color-alt; }
+    }
+
+    @if $border {
+        border-color: $border;
+    }
+
+    @if $is-button {
+        padding-#{$default-float}: 0;
+        padding-#{$default-opposite}: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        text-align: center;
+        line-height: 34px;
+        border: none;
+    }
+}
+
+@mixin fieldset {
+    border: $fieldset-border-width $fieldset-border-style $fieldset-border-color;
+    padding: $fieldset-padding;
+    margin: $fieldset-margin;
+
+    legend {
+        font-weight: $legend-font-weight;
+        background: $legend-bg;
+        padding: $legend-padding;
+        margin: 0;
+        margin-#{$default-float}: -3px;
+    }
+}
+
+@mixin form-error-color($color:$alert-color) {
+    border-color: $color;
+    background-color: rgba($color, 0.1);
+
+    &:focus {
+        background: $input-focus-bg-color;
+        border-color: $input-focus-border-color;
+    }
+}
+
+@mixin form-label-error-color($color:$alert-color) { color: $color; }
+
+@mixin form-error-message($bg:$alert-color) {
+    display: block;
+    padding: $input-error-message-padding;
+    margin-top: $input-error-message-top;
+    margin-bottom: $form-spacing;
+    font-size: $input-error-message-font-size;
+    font-weight: $input-error-message-font-weight;
+    font-style: $input-error-message-font-style;
+
+    $bg-lightness: lightness($bg);
+    background: $bg;
+    @if $bg-lightness < 70% or $bg == yellow { color: $input-error-message-font-color; }
+    @else { color: $input-error-message-font-color-alt; }
+}
+
+@mixin form-select  {
+    -webkit-appearance: none !important;
+    -webkit-border-radius: 0px;
+    background-color: $select-bg-color;
+    outline: none;
+
+    // The custom arrow have some fake horizontal padding so we can align it
+    // from the right side of the element without relying on CSS3
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMTJweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIzcHgiIHZpZXdCb3g9IjAgMCA2IDMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDYgMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gcG9pbnRzPSI1Ljk5MiwwIDIuOTkyLDMgLTAuMDA4LDAgIi8+PC9zdmc+);
+
+    // We can safely use leftmost and rightmost now
+    background-position: if($text-direction == 'rtl', 0%, 100%) center;
+
+    background-repeat: no-repeat;
+    border: $input-border-width $input-border-style $input-border-color;
+    padding: $form-spacing / 2;
+    font-size: $input-font-size;
+    color: $input-font-color;
+    line-height: normal;
+    @include radius(0);
+    &.radius { @include radius($global-radius); }
+    &:hover {
+        background-color: $select-hover-bg-color;
+        border-color: $input-focus-border-color;
+    }
+    // Disbaled Styles
+    &:disabled {
+        background-color: $input-disabled-bg;
+        cursor: $input-disabled-cursor;
+    }
+}
+
+// We use this mixin to turn on/off HTML5 number spinners
+@mixin html5number($browser, $on:true) {
+    @if $on==false {
+        @if $browser==webkit {
+            -webkit-appearance: none;
+            margin: 0;
+        } @else if $browser==moz {
+            -moz-appearance: textfield;
+        }
+    }
+}
+
+@mixin placeholder-styling($color:$input-placeholder-font-color) {
+    &::-webkit-input-placeholder { color: $color; }
+    &:-moz-placeholder { color: $color; }
+    &::-moz-placeholder { color: $color; }
+    &:-ms-input-placeholder { color: $color; }
+    &.placeholder { color: $color; }
+}
+
+/* Forms styling */
 @include exports("forms") {
     form { margin: 0 0 $form-spacing; }
 
@@ -153,7 +317,9 @@ $all-text-inputs: "input[type=\"text\"], input[type=\"password\"], input[type=\"
 
     select {
         @include form-select;
-        @include block-glowing-effect(focus, $glowing-effect-fade-time, $glowing-effect-color);
+        @if $input-include-glowing-effect == true {
+            @include block-glowing-effect(focus, $glowing-effect-fade-time, $glowing-effect-color);
+        }
         height: ($input-font-size + ($form-spacing * 1.5) - 1);
     }
 

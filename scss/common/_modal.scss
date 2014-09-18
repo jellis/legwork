@@ -1,0 +1,140 @@
+@import "settings";
+
+@mixin reveal-bg {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiSAMAAG8AaYLq42UAAAAASUVORK5CYII=');
+    background: $reveal-overlay-bg;
+    z-index: 99;
+    display: none;
+    top: 0;
+    #{$default-float}: 0;
+}
+
+// We use this mixin to create the structure of a reveal modal
+//
+// $base-style - Provides reveal base styles, can be set to false to override. Default: true, Options: false
+// $width - Sets reveal width Default: $reveal-default-width || 80%
+//
+@mixin reveal-modal-base($base-style:true, $width:$reveal-default-width, $max-width:$reveal-max-width) {
+    @if $base-style {
+        visibility: hidden;
+        display: none;
+        position: absolute;
+        z-index: 99;
+        #{$default-float}: 50%;
+        width: $max-width;
+        margin-#{$default-float}: -($max-width / 2);
+
+        @media #{$medium-only} {
+            width: $width;
+            margin-#{$default-float}: -($width / 2);
+        }
+
+        // Not exactly mobile-first... but, IE8
+        @media #{$small-only} {
+            top: 0;
+            margin-#{$default-float}: auto;
+            width: 100vw;
+            #{$default-float}: auto;
+        }
+
+        // Make sure rows don't have a min-width on them
+        .column, .columns { min-width: 0; }
+    }
+}
+
+// We use this to style the reveal modal defaults
+//
+// $bg - Sets background color of reveal modal. Default: $reveal-modal-bg || #fff
+// $padding - Padding to apply to reveal modal. Default: $reveal-modal-padding.
+// $border - Choose whether reveal uses a border. Default: true, Options: false
+// $border-style - Set reveal border style. Default: $reveal-border-style || solid
+// $border-width - Width of border (i.e. 1px). Default: $reveal-border-width.
+// $border-color - Color of border. Default: $reveal-border-color.
+// $box-shadow - Choose whether or not to include the default box-shadow. Default: true, Options: false
+// $top-offset - Default: $reveal-position-top || 50px
+@mixin reveal-modal-style(
+    $bg:$reveal-modal-bg,
+    $padding:$reveal-modal-padding,
+    $border:true,
+    $border-style:$reveal-border-style,
+    $border-width:$reveal-border-width,
+    $border-color:$reveal-border-color,
+    $box-shadow:true,
+    $top-offset:$reveal-position-top) {
+
+    @if $bg { background-color: $bg; }
+    @if $padding { padding: $padding; }
+
+    @if $border { border: $border-style $border-width $border-color; }
+
+    // We can choose whether or not to include the default box-shadow.
+    @if $box-shadow {
+        box-shadow: $reveal-box-shadow;
+    }
+
+    @if $top-offset {
+        top: $top-offset;
+        @media #{$small-only} {
+            top: 0;
+        }
+    }
+}
+
+// We use this to create a close button for the reveal modal
+//
+// $color - Default: $reveal-close-color || #aaa
+@mixin reveal-close($color:$reveal-close-color) {
+    font-size: $reveal-close-font-size;
+    line-height: 0.7;
+    position: absolute;
+    top: $reveal-close-top;
+    #{$default-opposite}: $reveal-close-side;
+    color: $color;
+    font-weight: $reveal-close-weight;
+    cursor: pointer;
+}
+
+@include exports("reveal") {
+
+    // Reveal Modals
+    .modal-bg { @include reveal-bg; }
+
+    dialog, .#{$reveal-modal-class} {
+        @include reveal-modal-base;
+        @include reveal-modal-style;
+
+        .#{$close-reveal-modal-class} { @include reveal-close; }
+    }
+
+    dialog[open] {
+        display:block;
+        visibility: visible;
+    }
+
+    // @media #{$medium-up} {
+
+    //     dialog, .#{$reveal-modal-class} {
+    //         @include reveal-modal-style(false, $reveal-modal-padding * 1.5, false, $box-shadow: false, $top-offset: $reveal-position-top);
+
+    //         &.tiny  { @include reveal-modal-base(false, 30%); }
+    //         &.small { @include reveal-modal-base(false, 40%); }
+    //         &.medium  { @include reveal-modal-base(false, 60%); }
+    //         &.large { @include reveal-modal-base(false, 70%); }
+    //         &.xlarge { @include reveal-modal-base(false, 95%); }
+    //     }
+
+    //     dialog, .#{$reveal-modal-class} {
+    //         &.full {
+    //             @include reveal-modal-base(false, 100vw);
+    //             top:0;
+    //             left:0;
+    //             height: 100vh;
+    //             min-height:100vh;
+    //             margin-left: 0 !important;
+    //         }
+    //     }
+    // }
+}

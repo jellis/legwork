@@ -1,6 +1,7 @@
 @charset "UTF-8";
 @import "compass/css3";
 
+// @import "myapp"; // File should be called "_myapp.scss" - with custom overrides for settings variables
 @import "functions";
 @import "settings";
 @import "mixins/common";
@@ -13,3 +14,6 @@
 @import "common/button-groups"; // Depends on global, buttons
 @import "common/forms"; // Depends on global, buttons
 @import "common/tables";
+@import "common/visibility";
+@import "common/alert-boxes";
+@import "common/modal";

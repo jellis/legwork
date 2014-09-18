@@ -8,38 +8,38 @@ $text-direction: ltr !default;
 
 // Base body settings
 $base-font-size: 14px !default;
-$body-bg: #FFF;
-$body-font-color: #222;
-$body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-$font-weight-normal:normal;
-$body-font-weight: normal;
-$body-font-style: normal;
+$body-bg: #FFF !default;
+$body-font-color: #222 !default;
+$body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$font-weight-normal: normal !default;
+$body-font-weight: normal !default;
+$body-font-style: normal !default;
 
 // Global radius
-$global-radius: 3px;
-$global-rounded: 1000px;
+$global-radius: 3px !default;
+$global-rounded: 1000px !default;
 
 // Color settings
-$primary-color: #008CBA;
-$secondary-color: #E7E7E7;
-$alert-color: #F04124;
-$success-color: #43AC6A;
-$warning-color: #F08A24;
-$info-color: #A0D3E8;
+$primary-color: #008CBA !default;
+$secondary-color: #E7E7E7 !default;
+$alert-color: #F04124 !default;
+$success-color: #43AC6A !default;
+$warning-color: #F08A24 !default;
+$info-color: #A0D3E8 !default;
 
 // Media query ranges
-$small-range: (0px, 640px);
-$medium-range: (641px, 1024px);
-$large-range: (1025px, 1440px);
-$xlarge-range: (1441px, 1920px);
-$xxlarge-range: (1921px, 100000px);
+$small-range: (0px, 640px) !default;
+$medium-range: (641px, 1024px) !default;
+$large-range: (1025px, 1440px) !default;
+$xlarge-range: (1441px, 1920px) !default;
+$xxlarge-range: (1921px, 100000px) !default;
 
 $screen: "only screen";
 
 $landscape: "#{$screen} and (orientation: landscape)";
 $portrait: "#{$screen} and (orientation: portrait)";
 
-$small-up: $screen;
+$small-up: $screen; // Everything
 $small-only: "#{$screen} and (max-width: #{upper-bound($small-range)})";
 
 $medium-up: "#{$screen} and (min-width:#{lower-bound($medium-range)})";
@@ -53,3 +53,405 @@ $xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max
 
 $xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})";
 $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})";
+
+// Settings for all components
+
+/**
+ * Type settings
+ */
+$header-font-family: $body-font-family;
+$header-font-weight: normal !default;
+$header-font-style: normal !default;
+$header-font-color: #222 !default;
+$header-line-height: 1.4 !default;
+$header-top-margin: 2px !default;
+$header-bottom-margin: 7px !default;
+$header-text-rendering: optimizeLegibility !default;
+
+// Header font sizes
+$h1-font-size: 40px !default;
+$h2-font-size: 33px !default;
+$h3-font-size: 23px !default;
+$h4-font-size: 20px !default;
+$h5-font-size: 17px !default;
+$h6-font-size: $base-font-size !default;
+
+// For small screens
+$h1-font-reduction: 10px !default;
+$h2-font-reduction: 10px !default;
+$h3-font-reduction: 5px !default;
+$h4-font-reduction: 5px !default;
+$h5-font-reduction: 0 !default;
+$h6-font-reduction: 0 !default;
+
+$subheader-line-height: 1.4 !default;
+$subheader-font-color: scale-color($header-font-color, $lightness: 35%) !default;
+$subheader-font-weight: normal !default;
+$subheader-top-margin: 2px !default;
+$subheader-bottom-margin: 7px !default;
+
+// Small
+$small-font-size: 60% !default;
+$small-font-color: scale-color($header-font-color, $lightness: 35%) !default;
+
+// Paragraphs
+$paragraph-font-family: inherit !default;
+$paragraph-font-weight: normal !default;
+$paragraph-font-size: $base-font-size !default;
+$paragraph-line-height: 1.6 !default;
+$paragraph-margin-bottom: 20px !default;
+$paragraph-aside-font-size: 14px !default;
+$paragraph-aside-line-height: 1.35 !default;
+$paragraph-aside-font-style: italic !default;
+$paragraph-text-rendering: optimizeLegibility !default;
+
+// We use these to style <code> tags
+$code-color: #333 !default;
+$code-font-family: Consolas, 'Liberation Mono', Courier, monospace !default;
+$code-font-weight: normal !default;
+$code-background-color: scale-color($secondary-color, $lightness: 70%) !default;
+$code-border-size: 1px !default;
+$code-border-style: solid !default;
+$code-border-color: scale-color($code-background-color, $lightness: -10%) !default;
+$code-padding: 2px 5px 1px !default;
+
+// We use these to style anchors
+$anchor-text-decoration: none !default;
+$anchor-text-decoration-hover: none !default;
+$anchor-font-color: $primary-color !default;
+$anchor-font-color-hover: scale-color($anchor-font-color, $lightness: -14%) !default;
+
+// We use these to style the <hr> element
+$hr-border-width: 1px !default;
+$hr-border-style: solid !default;
+$hr-border-color: #DDD !default;
+$hr-margin: 20px !default;
+
+// We use these to style lists
+$list-font-family: $paragraph-font-family !default;
+$list-font-size: $paragraph-font-size !default;
+$list-line-height: $paragraph-line-height !default;
+$list-margin-bottom: $paragraph-margin-bottom !default;
+$list-style-position: outside !default;
+$list-side-margin: 15px !default;
+$list-ordered-side-margin: 19px !default;
+$list-side-margin-no-bullet: 0 !default;
+$list-nested-margin: 20px !default;
+$definition-list-header-weight: bold !default;
+$definition-list-header-margin-bottom: 3px !default;
+$definition-list-margin-bottom: 10px !default;
+
+// We use these to style blockquotes
+$blockquote-font-color: scale-color($header-font-color, $lightness: 35%) !default;
+$blockquote-padding: 9px 20px 0 19px !default;
+$blockquote-border: 1px solid #DDD !default;
+$blockquote-cite-font-size: 13px !default;
+$blockquote-cite-font-color: scale-color($header-font-color, $lightness: 23%) !default;
+$blockquote-cite-link-color: $blockquote-cite-font-color !default;
+
+// Acronym styles
+$acronym-underline: 1px dotted #DDD !default;
+
+// We use these to control padding and margin
+$microformat-padding: 10px 12px !default;
+$microformat-margin: 0 0 20px 0 !default;
+
+// We use these to control the border styles
+$microformat-border-width: 1px !default;
+$microformat-border-style: solid !default;
+$microformat-border-color: #DDD !default;
+
+// We use these to control full name font styles
+$microformat-fullname-font-weight: bold !default;
+$microformat-fullname-font-size: 15px !default;
+
+// We use this to control the summary font styles
+$microformat-summary-font-weight: bold !default;
+
+// We use this to control abbr padding
+$microformat-abbr-padding: 0 1px !default;
+
+// We use this to control abbr font styles
+$microformat-abbr-font-weight: bold !default;
+$microformat-abbr-font-decoration: none !default;
+
+// Text alignment class names
+$align-class-names:
+    small-only,
+    small,
+    medium-only,
+    medium,
+    large-only,
+    large,
+    xlarge-only,
+    xlarge,
+    xxlarge-only,
+    xxlarge;
+
+// Text alignment breakpoints
+$align-class-breakpoints:
+    $small-only,
+    $small-up,
+    $medium-only,
+    $medium-up,
+    $large-only,
+    $large-up,
+    $xlarge-only,
+    $xlarge-up,
+    $xxlarge-only,
+    $xxlarge-up;
+
+/**
+ * Table settings
+ */
+// These control the background color for the table and even rows
+$table-bg: #FFFFFF !default;
+$table-even-row-bg: #F9F9F9 !default; // Also replicated in lt-ie9.scss - upate there
+
+// These control the table cell border style
+$table-border-style: solid !default;
+$table-border-size: 1px !default;
+$table-border-color: #DDDDDD !default;
+
+// These control the table head styles
+$table-head-bg: #F5F5F5 !default;
+$table-head-font-size: 14 !default;
+$table-head-font-color: #222222 !default;
+$table-head-font-weight: bold !default;
+$table-head-padding: 8px 10px 10px !default;
+
+// These control the table foot styles
+$table-foot-bg: $table-head-bg !default;
+$table-foot-font-size: $table-head-font-size !default;
+$table-foot-font-color: $table-head-font-color !default;
+$table-foot-font-weight: $table-head-font-weight !default;
+$table-foot-padding: $table-head-padding !default;
+
+// These control the caption
+$table-caption-bg: transparent !default;
+$table-caption-font-color: $table-head-font-color !default;
+$table-caption-font-size: 16px !default;
+$table-caption-font-weight: bold !default;
+
+// These control the row padding and font styles
+$table-row-padding: 9px 10px !default;
+$table-row-font-size: 14px !default;
+$table-row-font-color: #222222 !default;
+$table-line-height: 18px !default;
+
+// These are for controlling the display and margin of tables
+$table-display: table-cell !default;
+$table-margin-bottom: 20px !default;
+
+/**
+ * Visibility settings
+ */
+$visibility-breakpoint-sizes:
+    small,
+    medium,
+    large,
+    xlarge,
+    xxlarge;
+
+$visibility-breakpoint-queries:
+    unquote($small-up),
+    unquote($medium-up),
+    unquote($large-up),
+    unquote($xlarge-up),
+    unquote($xxlarge-up);
+
+$visibility-types: block, inline, list-item, table-cell, table, inline-block;
+
+/**
+ * Table settings
+ */
+// We use this to set the base for lots of form spacing and positioning styles
+$form-spacing: 16px !default;
+
+// We use these to style the labels in different ways
+$form-label-pointer: pointer !default;
+$form-label-font-size: $base-font-size !default;
+$form-label-font-weight: normal !default;
+$form-label-line-height: 1.5 !default;
+$form-label-font-color: scale-color(#000, $lightness: 30%) !default;
+$form-label-small-transform: capitalize !default;
+$form-label-bottom-margin: 0 !default;
+$input-font-family: inherit !default;
+$input-font-color: rgba(0,0,0,0.75) !default;
+$input-font-size: $base-font-size !default;
+$input-bg-color: #FFF !default;
+$input-focus-bg-color: scale-color(#FFF, $lightness: -2%) !default;
+$input-border-color: scale-color(#FFF, $lightness: -20%) !default;
+$input-focus-border-color: scale-color(#FFF, $lightness: -40%) !default;
+$input-border-style: solid !default;
+$input-border-width: 1px !default;
+$input-border-radius: $global-radius !default;
+$input-disabled-bg: #DDD !default;
+$input-disabled-cursor: default !default;
+$input-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1) !default;
+$input-include-glowing-effect: true !default;
+$input-placeholder-font-color: #C1C1C1 !default;
+
+// We use these to style the fieldset border and spacing.
+$fieldset-border-style: solid !default;
+$fieldset-border-width: 1px !default;
+$fieldset-border-color: #DDD !default;
+$fieldset-padding: 20px !default;
+$fieldset-margin: 18px 0 !default;
+
+// We use these to style the legends when you use them
+$legend-bg: #FFF !default;
+$legend-font-weight: bold !default;
+$legend-padding: 0 3px !default;
+
+// We use these to style the prefix and postfix input elements
+$input-prefix-bg: scale-color(#FFF, $lightness: -5%) !default;
+$input-prefix-border-color: scale-color(#FFF, $lightness: -20%) !default;
+$input-prefix-border-size: 1px !default;
+$input-prefix-border-type: solid !default;
+$input-prefix-overflow: hidden !default;
+$input-prefix-font-color: #333 !default;
+$input-prefix-font-color-alt: #FFF !default;
+
+// We use this setting to turn on/off HTML5 number spinners (the up/down arrows)
+$input-number-spinners: true !default;
+
+// We use these to style the error states for inputs and labels
+$input-error-message-padding: 6px 9px 6px 9px !default;
+$input-error-message-top: 0 !default;
+$input-error-message-font-size: 80% !default;
+$input-error-message-font-weight: normal !default;
+$input-error-message-font-style: normal !default;
+$input-error-message-font-color: #FFF !default;
+$input-error-message-font-color-alt: #333 !default;
+
+// We use this to style the glowing effect of inputs when focused
+$glowing-effect-fade-time: 0.45s !default;
+$glowing-effect-color: $input-focus-border-color !default;
+
+// Select variables
+$select-bg-color: #FFFFFF !default;
+$select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%) !default;
+
+// All text inputs
+$all-text-inputs: "input[type=\"text\"], input[type=\"password\"], input[type=\"date\"], input[type=\"datetime\"], input[type=\"datetime-local\"], input[type=\"month\"], input[type=\"week\"], input[type=\"email\"], input[type=\"number\"], input[type=\"search\"], input[type=\"tel\"], input[type=\"time\"], input[type=\"url\"], input[type=\"color\"]";
+
+/**
+ * Button settings
+ */
+// We use these to build padding for buttons.
+$button-tny: 7px !default;
+$button-sml: 9px !default;
+$button-med: 12px !default;
+$button-lrg: 16px !default;
+
+// We use this to control the display property.
+$button-display: inline-block !default;
+$button-margin-bottom: 16px !default; // Should be the same as $form-spacing
+
+// We use these to control button text styles.
+$button-font-family: $body-font-family !default;
+$button-font-color: #FFF !default;
+$button-font-color-alt: #333 !default;
+$button-font-tny: 10px !default;
+$button-font-sml: 11px !default;
+$button-font-med: 14px !default;
+$button-font-lrg: 17px !default;
+$button-font-weight: normal !default;
+$button-font-align: center !default;
+
+// We use these to control various hover effects.
+$button-function-factor: -20% !default;
+
+// We use these to control button border styles.
+// TODO: Strip out the border stuff... I don't think it gets used
+$button-border-width: 0 !default;
+$button-border-style: solid !default;
+$button-bg-color: $primary-color !default;
+$button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor) !default;
+$button-border-color: $button-bg-hover !default;
+$secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor) !default;
+$secondary-button-border-color: $secondary-button-bg-hover !default;
+$success-button-bg-hover: scale-color($success-color, $lightness: $button-function-factor) !default;
+$success-button-border-color: $success-button-bg-hover !default;
+$alert-button-bg-hover: scale-color($alert-color, $lightness: $button-function-factor) !default;
+$alert-button-border-color: $alert-button-bg-hover !default;
+
+// We use this to set the default radius used throughout the core.
+$button-radius: $global-radius !default;
+$button-round: $global-rounded !default;
+
+// We use this to set default opacity and cursor for disabled buttons.
+$button-disabled-opacity: 0.7 !default;
+$button-disabled-cursor: default !default;
+
+/**
+ * Button group settings
+ */
+$button-bar-margin-opposite: 10px !default;
+$button-group-border-width: 1px !default;
+
+/**
+ * Alert box settings
+ */
+// We use this to control alert padding.
+$alert-padding-top: 14px !default;
+$alert-padding-default-float: $alert-padding-top !default;
+$alert-padding-opposite-direction: $alert-padding-top + 10px !default;
+$alert-padding-bottom: $alert-padding-top !default;
+
+// We use these to control text style.
+$alert-font-weight: normal !default;
+$alert-font-size: 13px !default;
+$alert-font-color: #fff !default;
+$alert-font-color-alt: scale-color($secondary-color, $lightness: -66%) !default;
+
+// We use this for close hover effect.
+$alert-function-factor: -14% !default;
+
+// We use these to control border styles.
+$alert-border-style: solid !default;
+$alert-border-width: 1px !default;
+$alert-border-color: scale-color($primary-color, $lightness: $alert-function-factor) !default;
+$alert-bottom-margin: 20px !default;
+
+// We use these to style the close buttons
+$alert-close-color: #333 !default;
+$alert-close-top: 50% !default;
+$alert-close-position: 4px !default;
+$alert-close-font-size: 22px !default;
+$alert-close-opacity: 0.3 !default;
+$alert-close-opacity-hover: 0.5 !default;
+$alert-close-padding: 9px 6px 4px !default;
+
+// We use this to control border radius
+$alert-radius: $global-radius !default;
+
+/**
+ * Modal settings
+ */
+// We use these to control the style of the reveal overlay.
+$reveal-overlay-bg: rgba(#000, .45) !default;
+
+// We use these to control the style of the modal itself.
+$reveal-modal-bg: #fff !default;
+$reveal-position-top: 100px !default;
+$reveal-default-width: 80% !default;
+$reveal-max-width: (0.8 * $row-width) !default;
+$reveal-modal-padding: 20px !default;
+$reveal-box-shadow: 0 0 10px rgba(#000,.4) !default;
+
+// We use these to style the reveal close button
+$reveal-close-font-size: 40px !default;
+$reveal-close-top: 8px !default;
+$reveal-close-side: 11px !default;
+$reveal-close-color: #AAA !default;
+$reveal-close-weight: bold !default;
+
+// We use these to control the modal border
+$reveal-border-style: solid !default;
+$reveal-border-width: 1px !default;
+$reveal-border-color: #666 !default;
+
+$reveal-modal-class: "modal" !default;
+$close-reveal-modal-class: "close-modal" !default;

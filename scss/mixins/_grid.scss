@@ -1,6 +1,4 @@
-/**
- * The Grid
- */
+// Isolated in own file to enable IE8 support
 @mixin grid-row($behavior: false) {
 
     @if $behavior == nest {
