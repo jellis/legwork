@@ -21,5 +21,8 @@
 }
 
 @include exports("flex-video") {
-    .flex-video { @include flex-video-container; }
+    .flex-video {
+        @include flex-video-container;
+        .modal & { margin-bottom: 0; }
+    }
 }
