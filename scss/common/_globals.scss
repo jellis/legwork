@@ -2,6 +2,15 @@
  * Globals
  */
 @include exports("global") {
+
+    meta.foundation-version { font-family: "/5.2.2/"; }
+    meta.foundation-mq-small { font-family: "/" + unquote($small-up) + "/"; width: lower-bound($small-range); }
+    meta.foundation-mq-medium { font-family: "/" + unquote($medium-up) + "/"; width: lower-bound($medium-range); }
+    meta.foundation-mq-large { font-family: "/" + unquote($large-up) + "/"; width: lower-bound($large-range); }
+    meta.foundation-mq-xlarge { font-family: "/" + unquote($xlarge-up) + "/"; width: lower-bound($xlarge-range); }
+    meta.foundation-mq-xxlarge { font-family: "/" + unquote($xxlarge-up) + "/"; width: lower-bound($xxlarge-range); }
+    meta.foundation-data-attribute-namespace { font-family: #{$namespace}; }
+
     html, body { height: 100%; }
 
     *, *:before, *:after {

@@ -299,7 +299,7 @@ function is_touch() {
             xxlarge: S('.foundation-mq-xxlarge').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, '')
         },
 
-        stylesheet : $('<style></style>').appendTo('head')[0].sheet,
+        stylesheet : false,
 
         global: {
             namespace: ''
@@ -316,6 +316,7 @@ function is_touch() {
             // set foundation global scope
             this.scope = scope || this.scope;
 
+            this.set_stylesheet();
             this.set_namespace();
 
             if (libraries && typeof libraries === 'string' && !/reflow/i.test(libraries)) {
@@ -371,6 +372,13 @@ function is_touch() {
                 if (this.utils.hasOwnProperty(methods_arr[i])) {
                     scope[methods_arr[i]] = this.utils[methods_arr[i]];
                 }
+            }
+        },
+
+        set_stylesheet: function() {
+            if (this.stylesheet == false) {
+                var style = $('<style></style>').appendTo('head');
+                this.stylesheet = style[0].sheet ? style[0].sheet : style[0].styleSheet;
             }
         },
 

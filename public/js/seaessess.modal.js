@@ -419,7 +419,7 @@
         // We're not animating for IE8 - because IE8
         var fade = /fade/i.test(str);
         var pop = /pop/i.test(str);
-        return (window.attachEvent && !window.addEventListener) ? {} : {
+        return {
             animate: fade || pop,
             pop: pop,
             fade: fade

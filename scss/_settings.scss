@@ -1,3 +1,5 @@
+$namespace: false !default;
+
 $row-width: 1000px !default;
 $column-gutter: 30px !default;
 $total-columns: 12 !default;
@@ -524,3 +526,50 @@ $pagination-small-font-size: (0.9 * $pagination-li-font-size) !default;
 $pagination-small-link-pad: 1px 6px 1px !default;
 $pagination-small-li-margin: 5px !default;
 
+/**
+ * Dropdown settings
+ */
+// We use these to controls height and width styles.
+$f-dropdown-max-width: 200px !default;
+$f-dropdown-height: auto !default;
+$f-dropdown-max-height: none !default;
+
+// Used for bottom position
+$f-dropdown-margin-top: 2px !default;
+
+// Used for right position
+$f-dropdown-margin-left: $f-dropdown-margin-top !default;
+
+// Used for left position
+$f-dropdown-margin-right: $f-dropdown-margin-top !default;
+
+// Used for top position
+$f-dropdown-margin-bottom: $f-dropdown-margin-top !default;
+
+// We use this to control the background color
+$f-dropdown-bg: #FFFFFF !default;
+
+// We use this to set the border styles for dropdowns.
+$f-dropdown-border-style: solid !default;
+$f-dropdown-border-width: 1px !default;
+$f-dropdown-border-color: scale-color(#FFFFFF, $lightness: -20%) !default;
+
+// We use these to style the triangle pip.
+$f-dropdown-triangle-size: 6px !default;
+$f-dropdown-triangle-color: #FFFFFF !default;
+$f-dropdown-triangle-side-offset: 10px !default;
+
+// We use these to control styles for the list elements.
+$f-dropdown-list-style: none !default;
+$f-dropdown-font-color: #555555 !default;
+$f-dropdown-font-size: 14px !default;
+$f-dropdown-list-padding: 3px !default;
+$f-dropdown-line-height: 18px !default;
+$f-dropdown-list-hover-bg: #EEEEEE !default;
+$dropdown-mobile-default-float: 0 !default;
+
+// We use this to control the styles for when the dropdown has custom content.
+$f-dropdown-content-padding: 20px !default;
+
+// Default radius for dropdown.
+$f-dropdown-radius: $global-radius !default;
