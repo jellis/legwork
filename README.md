@@ -13,8 +13,7 @@ sexy things for forms etc.
 - Modals (no IE8 animation because... IE8)
 - Alerts (user messages)
 
-Keep an eye out for more things to come which include: -
+### TODO
+- Ability to include web fonts
 - Off Canvas menu for mobile/table devices
-- Modals
-- Custom Javascript library
-- ... etc etc etc
+- Refactor js library - currently entirely Foundation namespaced
