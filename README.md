@@ -10,11 +10,12 @@ sexy things for forms etc.
 ... that's pretty much it at this stage.
 
 ### Items included thus far
-- Modals (no IE8 animation because... IE8)
+- Modals - animation included because a bind hack has been included... woot!
 - Alerts (user messages)
 - Flex Video player - AWESOME!
 - Panels... just because
 - Pagination
+- Dropdowns
 
 ### TODO
 - Ability to include web fonts
