@@ -18,6 +18,7 @@ sexy things for forms etc.
 - Dropdowns
 - Button dropdowns
 - Split buttons (with dropdown)
+- Tooltips (these need to be styled a bit better)
 
 ### TODO
 - Ability to include web fonts
