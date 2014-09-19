@@ -582,9 +582,9 @@ $dropdown-button-pip-color: #FFFFFF !default;
 $dropdown-button-pip-color-alt: #333333 !default;
 
 $button-pip-tny: 4px !default;
-$button-pip-sml: 6px !default;
+$button-pip-sml: 5px !default;
 $button-pip-med: 8px !default;
-$button-pip-lrg: 10px !default;
+$button-pip-lrg: 12px !default;
 
 // We use these to style tiny dropdown buttons
 $dropdown-button-padding-tny: $button-pip-tny * 7 !default;
@@ -607,7 +607,7 @@ $dropdown-button-pip-top-med: -$button-pip-med / 2 + 2px !default;
 // We use these to style large dropdown buttons
 $dropdown-button-padding-lrg: $button-pip-lrg * 5 + 3px !default;
 $dropdown-button-pip-size-lrg: $button-pip-lrg - 6px !default;
-$dropdown-button-pip-opposite-lrg: $button-pip-lrg * 2.5 !default;
+$dropdown-button-pip-opposite-lrg: $button-pip-lrg * 2 !default;
 $dropdown-button-pip-top-lrg: -$button-pip-lrg / 2 + 3px !default;
 
 /**
@@ -631,7 +631,7 @@ $split-button-padding-sml: $button-pip-sml * 10 !default;
 $split-button-span-width-sml: $button-pip-sml * 6 !default;
 $split-button-pip-size-sml: $button-pip-sml !default;
 $split-button-pip-top-sml: $button-pip-sml * 1.5 !default;
-$split-button-pip-default-float-sml: -6px !default;
+$split-button-pip-default-float-sml: -7px !default;
 
 // We use these to control medium split buttons
 $split-button-padding-med: $button-pip-med * 9 !default;
