@@ -6,17 +6,6 @@
  * http://www.opensource.org/licenses/mit-license.php
 */
 
-/**
- * $().ready(function(){
-        $('html').removeClass('no-js');
-        if (is_touch()) $('html').addClass('touch');
-});
-
-function is_touch() {
-        return (('ontouchstart' in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
-}
- */
-
 (function ($, window, document, undefined) {
     'use strict';
 
@@ -38,19 +27,6 @@ function is_touch() {
         'foundation-mq-xlarge',
         'foundation-mq-xxlarge',
         'foundation-data-attribute-namespace']);
-
-    // Enable FastClick if present
-
-    // Load Fastclick via http://bveneman.nl/2013/08/04/on-using-fastclick/
-    // TEST to see if it's actually doing anything
-    $(function() {
-        if (typeof FastClick !== 'undefined' && Foundation.utils.is_touch()) {
-            // Don't attach to body if undefined
-            if (typeof document.body !== 'undefined') {
-                FastClick.attach(document.body);
-            }
-        }
-    });
 
     // private Fast Selector wrapper,
     // returns jQuery object. Only use where
@@ -106,7 +82,6 @@ function is_touch() {
     };
 
     // Event binding and data-options updating.
-
     var bindings = function (method, options) {
         var self = this,
                 should_bind_events = !S(this).data(this.attr_name(true));
@@ -385,8 +360,50 @@ function is_touch() {
 
         prepare_document: function() {
             // Could do a few bootstrapping things here
-            $('html').removeClass('no-js').addClass('js');
+            var theHead = $('html');
+            theHead.removeClass('no-js').addClass('js');
+            if (this.utils.is_touch()) {
+                this.load_script('/js/fastclick.js', function(){
+                    if (typeof FastClick !== 'undefined') {
+                        if (typeof document.body !== 'undefined') {
+                            FastClick.attach(document.body);
+                        }
+                    }
+                });
+                theHead.addClass('touch');
+            }
         },
+
+        load_script: (function() {
+            var noop = function () {
+                return;
+            };
+
+            return function () {
+                var toLoad = arguments.length, callback, hasCallback = arguments[toLoad - 1] instanceof Function, script, 
+                    i, onloaded = function () {
+                        toLoad -= 1;
+                        if (toLoad === 0) {
+                            callback.call();
+                        }
+                };
+
+                if (hasCallback) {
+                    toLoad -= 1;
+                    callback = arguments[arguments.length - 1];
+                } else {
+                    callback = noop;
+                }
+
+                for (i = 0; i < toLoad; i += 1) {
+                    script = document.createElement("script");
+                    script.src = arguments[i];
+
+                    script.onload = script.onerror = onloaded;
+                    document.head.appendChild(script);
+                }
+            };
+        })(),
 
         set_namespace: function () {
 
@@ -622,7 +639,7 @@ function is_touch() {
             },
 
             is_touch: function() {
-                return (('ontouchstart' in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+                return ("ontouchstart" in window) || window.DocumentTouch && document instanceof DocumentTouch;
             }
         }
     };
