@@ -318,6 +318,7 @@ function is_touch() {
 
             this.set_stylesheet();
             this.set_namespace();
+            this.prepare_document();
 
             if (libraries && typeof libraries === 'string' && !/reflow/i.test(libraries)) {
                 if (this.libs.hasOwnProperty(libraries)) {
@@ -380,6 +381,11 @@ function is_touch() {
                 var style = $('<style></style>').appendTo('head');
                 this.stylesheet = style[0].sheet ? style[0].sheet : style[0].styleSheet;
             }
+        },
+
+        prepare_document: function() {
+            // Could do a few bootstrapping things here
+            $('html').removeClass('no-js').addClass('js');
         },
 
         set_namespace: function () {
