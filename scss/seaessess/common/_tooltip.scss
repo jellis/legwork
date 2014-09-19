@@ -73,7 +73,7 @@
         font-weight: $tooltip-close-font-weight;
     }
 
-    @media #{$small-only} {
+    @media #{$medium-up} {
         .tooltip {
             &>.nub {
                 border-color: transparent transparent $tooltip-bg transparent;
