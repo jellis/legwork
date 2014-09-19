@@ -31,7 +31,7 @@
     // If we're dealing with tiny buttons, use these styles
     @if $padding == tiny {
         padding-#{$default-opposite}: $dropdown-button-padding-tny;
-        &:before {
+        &:after {
             border-width: $dropdown-button-pip-size-tny;
             #{$default-opposite}: $dropdown-button-pip-opposite-tny;
             margin-top: $dropdown-button-pip-top-tny;
