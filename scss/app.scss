@@ -2,24 +2,8 @@
 @import "compass/css3";
 
 // @import "myapp"; // File should be called "_myapp.scss" - with custom overrides for settings variables
-@import "functions";
-@import "settings";
-@import "mixins/common";
+@import "seaessess/functions";
+@import "seaessess/settings";
+@import "seaessess/mixins/common";
 
-@import "common/normalize";
-@import "common/globals";
-@import "common/type";
-@import "common/grid";
-@import "common/buttons"; // Depends on global
-@import "common/button-groups"; // Depends on global, buttons
-@import "common/forms"; // Depends on global, buttons
-@import "common/tables";
-@import "common/visibility";
-@import "common/alert-boxes";
-@import "common/modal";
-@import "common/flex-video";
-@import "common/panels";
-@import "common/pagination";
-@import "common/dropdown";
-@import "common/dropdown-buttons";
-@import "common/split-buttons";
+@import "seaessess/common/all";

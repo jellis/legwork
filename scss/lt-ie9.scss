@@ -2,12 +2,12 @@
 @import "compass/css3";
 
 // @import "myapp"; // File should be called "_myapp.scss" - with custom overrides for settings variables
-@import "functions";
-@import "settings";
-@import "mixins/common";
+@import "seaessess/functions";
+@import "seaessess/settings";
+@import "seaessess/mixins/common";
 
 // Custom for IE8
-@import "mixins/grid";
+@import "seaessess/mixins/grid";
 
 // Just use the "medium" size for <IE8
 // Row size is also fixed to 90% of the row-width
