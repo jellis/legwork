@@ -7,7 +7,7 @@ sexy things for forms etc.
 - SASS
 - Compass
 
-... that's pretty much it at this stage.
+... that's pretty much it at this stage. But I've updated the README.md
 
 ### Items included thus far
 - Modals - animation included because a bind hack has been included... woot!
