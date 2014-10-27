@@ -1,0 +1,57 @@
+/*
+Error: It's not clear which file to import for '@import "seaessess/lt-ie9"'.
+       Candidates:
+         seaessess/_lt-ie9.scss
+         seaessess/lt-ie9.scss
+       Please delete or rename all but one of these files.
+        on line 1 of /media/sf_localhost/www/seaessess/scss/seaessess/lt-ie9.scss
+
+1: @import "seaessess/lt-ie9";
+
+Backtrace:
+/media/sf_localhost/www/seaessess/scss/seaessess/lt-ie9.scss:1
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/import_node.rb:66:in `rescue in import'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/import_node.rb:45:in `import'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/import_node.rb:28:in `imported_file'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/import_node.rb:37:in `css_import?'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/visitors/perform.rb:294:in `visit_import'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/stack.rb:79:in `block in with_base'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/stack.rb:115:in `with_frame'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/stack.rb:79:in `with_base'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/visitors/perform.rb:152:in `visit'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/visitors/base.rb:52:in `map'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/visitors/perform.rb:161:in `block in visit_children'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/visitors/perform.rb:180:in `visit_root'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/visitors/perform.rb:151:in `visit'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/root_node.rb:36:in `css_tree'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/tree/root_node.rb:20:in `render'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/engine.rb:268:in `render'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/plugin/compiler.rb:486:in `update_stylesheet'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/plugin/compiler.rb:214:in `block in update_stylesheets'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/plugin/compiler.rb:208:in `each'
+/usr/local/lib/ruby/gems/2.0.0/gems/sass-3.4.0/lib/sass/plugin/compiler.rb:208:in `update_stylesheets'
+/usr/local/lib/ruby/gems/2.0.0/gems/compass-1.0.0/lib/compass/sass_compiler.rb:40:in `compile!'
+/usr/local/lib/ruby/gems/2.0.0/gems/compass-1.0.0/lib/compass/commands/update_project.rb:49:in `perform'
+/usr/local/lib/ruby/gems/2.0.0/gems/compass-1.0.0/lib/compass/commands/base.rb:18:in `execute'
+/usr/local/lib/ruby/gems/2.0.0/gems/compass-1.0.0/lib/compass/commands/project_base.rb:19:in `execute'
+/usr/local/lib/ruby/gems/2.0.0/gems/compass-1.0.0/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/usr/local/lib/ruby/gems/2.0.0/gems/compass-1.0.0/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/usr/local/lib/ruby/gems/2.0.0/gems/compass-1.0.0/bin/compass:30:in `block in <top (required)>'
+/usr/local/lib/ruby/gems/2.0.0/gems/compass-1.0.0/bin/compass:44:in `call'
+/usr/local/lib/ruby/gems/2.0.0/gems/compass-1.0.0/bin/compass:44:in `<top (required)>'
+/usr/local/bin/compass:23:in `load'
+/usr/local/bin/compass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: It's not clear which file to import for '@import \"seaessess/lt-ie9\"'.\A        Candidates:\A          seaessess/_lt-ie9.scss\A          seaessess/lt-ie9.scss\A        Please delete or rename all but one of these files.\A         on line 1 of /media/sf_localhost/www/seaessess/scss/seaessess/lt-ie9.scss\A \A 1: @import \"seaessess/lt-ie9\";"; }
