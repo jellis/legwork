@@ -56,6 +56,11 @@ $xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max
 $xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})";
 $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})";
 
+// Retina queries
+$retina-all: "(-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi)";
+$retina-small-up: "#{$screen} and (-webkit-min-device-pixel-ratio: 2), #{$retina-all}";
+$retina-medium-up: "#{$screen} and (min-width:#{lower-bound($medium-range)}), #{$retina-all}";
+
 // Settings for all components
 
 /**
