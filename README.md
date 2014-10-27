@@ -18,9 +18,10 @@ sexy things for forms etc.
 - Dropdowns
 - Button dropdowns
 - Split buttons (with dropdown)
-- Tooltips (these need to be styled a bit better)
+- Tooltips
+- Off Canvas menu for mobile/table devices
 
 ### TODO
 - Ability to include web fonts
-- Off Canvas menu for mobile/table devices
 - Refactor js library - currently entirely Foundation namespaced
+- Datepicker
