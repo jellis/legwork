@@ -1,4 +1,4 @@
-@import "seaessess/settings";
+@import "scss/settings";
 
 @mixin button-group-container($styles:true, $float:false) {
     @if $styles {

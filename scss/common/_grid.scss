@@ -1,5 +1,5 @@
-@import "seaessess/settings";
-@import "seaessess/mixins/grid";
+@import "scss/settings";
+@import "scss/mixins/grid";
 
 /* The grid */
 @include exports("grid") {

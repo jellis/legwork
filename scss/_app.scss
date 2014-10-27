@@ -1,10 +1,10 @@
 @charset "UTF-8";
 @import "compass/css3";
 
-@import "seaessess/functions";
-@import "seaessess/settings";
-@import "seaessess/mixins/common";
+@import "scss/functions";
+@import "scss/settings";
+@import "scss/mixins/common";
 
 // You can replace this with custom imports - That is, 
 // just the components you need
-@import "seaessess/common/all";
+@import "scss/common/all";
