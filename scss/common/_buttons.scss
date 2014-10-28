@@ -1,5 +1,4 @@
-@import "scss/settings";
-
+// Depends: globals
 @mixin button-size($padding:$button-med, $full-width:false) {
     // We control which padding styles come through,
     // these can be turned off by setting $padding:false

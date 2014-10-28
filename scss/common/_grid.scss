@@ -1,5 +1,4 @@
-@import "scss/settings";
-@import "scss/mixins/grid";
+// Depends: mixins/grid
 
 /* The grid */
 @include exports("grid") {
