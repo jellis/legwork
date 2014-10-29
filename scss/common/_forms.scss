@@ -184,9 +184,14 @@
 
 @mixin form-error-message-anchor($bg:$alert-color) {
     $bg-lightness: lightness($bg);
-    @if $bg-lightness < 70% or $bg == yellow { color: $input-error-message-font-color; }
-    @else { color: $input-error-message-font-color-alt; }
-    border-bottom: 1px dotted #ffffff;
+    @if $bg-lightness < 70% or $bg == yellow {
+        color: $input-error-message-font-color;
+        border-bottom: 1px dotted $input-error-message-font-color;
+    } @else {
+        color: $input-error-message-font-color-alt;
+        border-bottom: 1px dotted $input-error-message-font-color-alt;
+    }
+    
 }
 
 @mixin form-select  {
