@@ -540,7 +540,7 @@ $f-dropdown-height: auto !default;
 $f-dropdown-max-height: none !default;
 
 // Used for bottom position
-$f-dropdown-margin-top: 2px !default;
+$f-dropdown-margin-top: 6px !default;
 
 // Used for right position
 $f-dropdown-margin-left: $f-dropdown-margin-top !default;
@@ -560,7 +560,7 @@ $f-dropdown-border-width: 1px !default;
 $f-dropdown-border-color: scale-color(#FFFFFF, $lightness: -20%) !default;
 
 // We use these to style the triangle pip.
-$f-dropdown-triangle-size: 6px !default;
+$f-dropdown-triangle-size: 7px !default;
 $f-dropdown-triangle-color: #FFFFFF !default;
 $f-dropdown-triangle-side-offset: 10px !default;
 

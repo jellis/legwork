@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Welcome to Sea-EssEss</title>
+    <!-- Included CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/css/app.css" />
+    <script src="/js/jquery.js"></script>
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="/css/lt-ie9.css" />
+        <script src="/js/lt-ie9.js"></script>
+        <script src="/js/respond.min.js"></script>
+        <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+    <!--[if lt IE 10]>
+        <script src="/js/lt-ie10.js"></script>
+        <script src="/js/jquery.placeholder.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <form method="post" action="" enctype="application/www-form-data">
+        <div class="row">
+            <div class="medium-3 columns">
+                <label for="date">Date</label>
+                <input type="text" name="date" data-input-touch="date" />
+            </div>
+            <div class="medium-3 columns">
+                <label for="credit_card">Credit Card</label>
+                <input type="text" name="credit_card" data-input-touch="number" />
+            </div>
+            <div class="medium-3 columns">
+                <label for="time">Time</label>
+                <input type="text" name="time" data-input-touch="time" />
+            </div>
+            <div class="medium-3 columns">
+                <label for="text">Text</label>
+                <input type="text" name="text" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="medium-3 columns">
+                <label for="text">URL</label>
+                <input type="text" name="url" data-input-touch="url" />
+            </div>
+            <div class="medium-3 columns">
+                <label for="text">Email</label>
+                <input type="text" name="email" data-input-touch="email" />
+            </div>
+            <div class="medium-3 columns">
+                <button type="submit" class="button expand">Submit</button>
+            </div>
+        </div>
+    </form>
+    <script src="/js/seaessess.js"></script>
+    <script>$(document).foundation();</script>
+</body>
+</html>

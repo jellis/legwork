@@ -363,6 +363,7 @@
             var theHead = $('html');
             theHead.removeClass('no-js').addClass('js');
             if (this.utils.is_touch()) {
+                this.load_script('/js/touch-and-go.js');
                 this.load_script('/js/fastclick.js', function(){
                     if (typeof FastClick !== 'undefined') {
                         if (typeof document.body !== 'undefined') {
