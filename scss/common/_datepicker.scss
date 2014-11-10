@@ -1,0 +1,8 @@
+
+@mixin datepicker() {
+    display: none;
+    position: absolute;
+    padding: 4px;
+    margin-top: 1px;
+    direction: $text-direction;
+}

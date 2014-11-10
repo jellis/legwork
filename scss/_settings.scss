@@ -747,3 +747,14 @@ $off-canvas-overlay-background-hover: rgba(#FFFFFF, 0.05) !default;
 
 // Transition Variables
 $menu-slide: "transform 500ms ease" !default;
+
+// Datepicker variables
+$datepicker-z-index: 1000 !default;
+$datepicker-line-height: $paragraph-line-height !default;
+$datepicker-table-bg: transparent !default;
+$datepicker-dropdown-bg: #FFF !default;
+$datepicker-dropdown-border-color: rgba(0, 0, 0, .2) !default;
+$datepicker-dropdown-link-color: $primary-color !default;
+$datepicker-dropdown-link-color-hover: scale-color($datepicker-dropdown-link-color, $lightness: -30%) !default;
+$datepicker-dropdown-link-bg-hover: $primary-color !default;
+
