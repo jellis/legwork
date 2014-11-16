@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Welcome to Sea-EssEss</title>
+    <!-- Included CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/css/app.css" />
+    <script src="/js/jquery.js"></script>
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="/css/lt-ie9.css" />
+        <script src="/js/lt-ie9.js"></script>
+        <script src="/js/respond.min.js"></script>
+        <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+    <!--[if lt IE 10]>
+        <script src="/js/lt-ie10.js"></script>
+        <script src="/js/jquery.placeholder.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="row">
+        <div class="medium-12 columns">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam varius efficitur nibh sit amet varius. Morbi pulvinar vitae neque a faucibus. Pellentesque tincidunt orci ut lorem aliquam commodo ut et velit. Cras tempor magna sed mauris iaculis posuere. Fusce eu laoreet erat. Etiam sagittis sodales eros, sed porta urna. Nulla consequat arcu pretium, feugiat mauris eleifend, accumsan dui. Phasellus non euismod magna. Donec malesuada vehicula lectus vel posuere.</p>
+            <p>Nulla elementum interdum metus, aliquet sollicitudin ex placerat ut. Sed id tempor eros, quis blandit purus. Maecenas volutpat vitae erat eget tempor. Donec finibus felis ut ipsum auctor lobortis. Aliquam tempus risus id turpis porta accumsan. Nullam scelerisque sem at neque dictum dictum. Phasellus eget congue elit. Vestibulum vel aliquam diam. Sed pretium sit amet felis vitae scelerisque. Praesent facilisis arcu eu gravida hendrerit. Proin hendrerit enim ut tempus tincidunt. Maecenas venenatis odio in metus rhoncus dignissim eu at lacus. Pellentesque nisl neque, accumsan nec accumsan vitae, rhoncus at nisl. Nullam at tincidunt nisi.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-6 columns">
+            <input type="text" name="start_date" class="datepicker" />
+        </div>
+        <div class="medium-6 columns">
+            <input type="text" name="end_date" class="datepicker" />
+        </div>
+    </div>
+    <script src="/js/seaessess.js"></script>
+    <script src="/js/seaessess.datepicker.js"></script>
+    <script>$(document).foundation();</script>
+    <script>$('.datepicker').fdatepicker();</script>
+</body>
+</html>

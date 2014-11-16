@@ -751,10 +751,12 @@ $menu-slide: "transform 500ms ease" !default;
 // Datepicker variables
 $datepicker-z-index: 1000 !default;
 $datepicker-line-height: $paragraph-line-height !default;
+$datepicker-font-size: $paragraph-font-size !default;
 $datepicker-table-bg: transparent !default;
 $datepicker-dropdown-bg: #FFF !default;
 $datepicker-dropdown-border-color: rgba(0, 0, 0, .2) !default;
 $datepicker-dropdown-link-color: $primary-color !default;
 $datepicker-dropdown-link-color-hover: scale-color($datepicker-dropdown-link-color, $lightness: -30%) !default;
 $datepicker-dropdown-link-bg-hover: $primary-color !default;
+$datepicker-dropdown-min-width: 160px !default;
 

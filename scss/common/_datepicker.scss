@@ -1,8 +1,96 @@
 
-@mixin datepicker() {
-    display: none;
+@mixin datepicker-dropdown {
     position: absolute;
+    top: 0;
+    left: 0;
+    z-index: $datepicker-z-index;
+    display: none;
+    min-width: $datepicker-dropdown-min-width;
+    list-style: none;
+    background-color: $datepicker-dropdown-bg;
+    border: 1px solid #CCC; // Fallback for non-rgba
+    border: 1px solid $datepicker-dropdown-border-color;
+    @include border-radius(5px);
+    @include box-shadow(0 5px 10px $datepicker-dropdown-border-color);
+    font-size: $datepicker-font-size;
+    box-sizing: border-box;
+    line-height: $datepicker-line-height;
     padding: 4px;
-    margin-top: 1px;
-    direction: $text-direction;
+
+    >div { display: none; }
+    .days div.datepicker-days { display: block; }
+    .months div.datepicker-months { display: block; }
+    .years div.datepicker-years { display: block; }
+
+    table {
+        border: none;
+        margin: 0;
+    }
+    
+    th, td {
+        box-sizing: border-box;
+        padding: 4px 8px;
+        text-align: center;
+        width: 20px;
+        height: 20px;
+        background: $datepicker-table-bg;
+        cursor: pointer;
+
+        &.active {
+            &.day {
+                background: $datepicker-dropdown-link-color-hover;
+            }
+            &.year {
+                background: $datepicker-dropdown-link-color-hover;
+            }
+        }
+    }
+
+    table tr td {
+        span {
+            display: block;
+            width: 23%;
+            height: 54px;
+            line-height: 54px;
+            float: left;
+            margin: 1%;
+            cursor: pointer;
+        }
+    }
+
+    th.date-switch {
+        width: 145px;
+    }
+
+    thead tr:first-child th, tfoot tr:first-child th { cursor: pointer; }
+
+    .cw {
+        font-size: 10px;
+        width: 12px;
+        padding: 0 2px 0 5px;
+        vertical-align: middle;
+    }
+    thead tr:first-child th.cw {
+        cursor: default;
+        background-color: transparent;
+    }
+
+    &.datepicker-close {
+        position:absolute;
+        top: -30px;
+        right: 0px;
+        width: 15px;
+        height: 30px;
+        padding: 0px;
+        display: none;
+    }
+
+    td.old, td.new { color: #999999; }
+    td.day.disabled { color: #EEEEEE; }
+    td.day:hover { background: #D5D5D5; color: #111111; }
+    td.day.old:hover { color: #5C5C5C; }
+}
+
+@include exports("datepicker") {
+    .datepicker.dropdown-menu { @include datepicker-dropdown; }
 }
