@@ -12,19 +12,21 @@ $text-direction: ltr !default;
 $base-font-size: 14px !default;
 $body-bg: #FFF !default;
 $body-font-color: #222 !default;
-$body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$body-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-weight-normal: normal !default;
 $body-font-weight: normal !default;
 $body-font-style: normal !default;
 
 // Global radius
-$global-radius: 3px !default;
+$global-radius: 2px !default;
 $global-rounded: 1000px !default;
 
 // Color settings
-$primary-color: #008CBA !default;
+//$primary-color: #008CBA !default;
+$primary-color: #2069E7 !default;
 $secondary-color: #E7E7E7 !default;
-$alert-color: #F04124 !default;
+//$alert-color: #F04124 !default;
+$alert-color: #D14836 !default;
 $success-color: #43AC6A !default;
 $warning-color: #F08A24 !default;
 $info-color: #A0D3E8 !default;
@@ -353,7 +355,7 @@ $button-med: 12px !default;
 $button-lrg: 16px !default;
 
 // We use this to control the display property.
-$button-display: inline-block !default;
+$button-margin: 5px !default;
 $button-margin-bottom: 16px !default; // Should be the same as $form-spacing
 
 // We use these to control button text styles.
@@ -368,11 +370,10 @@ $button-font-weight: normal !default;
 $button-font-align: center !default;
 
 // We use these to control various hover effects.
-$button-function-factor: -20% !default;
+$button-function-factor: -8% !default;
 
 // We use these to control button border styles.
-// TODO: Strip out the border stuff... I don't think it gets used
-$button-border-width: 0 !default;
+$button-border-width: 1px !default;
 $button-border-style: solid !default;
 $button-bg-color: $primary-color !default;
 $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor) !default;

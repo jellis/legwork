@@ -64,3 +64,13 @@
 
     @return if( $normalised == (), $list, $normalised );
 }
+
+$require: () !default;
+@function require-once($module)
+{
+    $module_index: index($require, $module);
+    @if (($module_index == null) or ($module_index == false)) {
+        $require: append($require, $module);
+        @return "#{$module}";
+    }
+}

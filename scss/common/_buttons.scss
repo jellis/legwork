@@ -31,7 +31,9 @@
     }
 }
 
-@mixin button-base($style:true, $display:$button-display) {
+@mixin button-base($style:true, $display:block) {
+    float: #{$default-float};
+    margin-#{$default-opposite}: 5px;
     @if $style {
         border-style: $button-border-style;
         border-width: $button-border-width;
@@ -48,7 +50,11 @@
         -webkit-font-smoothing: antialiased;
         &:focus, &:active { outline: none; }
     }
+
     @if $display { display: $display; }
+
+    // Specifically for dropdowns
+    &.open { @include box-shadow(rgba(0, 0, 0, 0.1) 0 1px 3px inset); }
 }
 
 @mixin button-style($bg:$button-bg-color, $radius:false, $disabled:false, $bg-hover:null, $border-color:null) {
@@ -143,7 +149,7 @@
 
     @media #{$medium-up} {
         button, .button {
-            @include button-base($style:false, $display:inline-block);
+            @include button-base($style:false, $display:block);
             @include button-size($padding:false, $full-width:false);
         }
     }

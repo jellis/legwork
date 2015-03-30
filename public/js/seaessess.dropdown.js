@@ -122,6 +122,7 @@
                     self.S(this).trigger('closed').trigger('closed.fndtn.dropdown', [dropdown]);
                 }
             });
+            self.S(window).off('keyup.dropdown');
         },
 
         closeall: function() {
@@ -164,6 +165,13 @@
                 if (dropdown.data('target') !== target.get(0))
                     this.open.call(this, dropdown, target);
             } else {
+                var self = this;
+                // Attach listener for pressing esc key
+                this.S(window).on('keyup.dropdown', function(e) {
+                    if (e.keyCode == 27) {
+                        self.close.call(self, dropdown);
+                    }
+                });
                 this.open.call(this, dropdown, target);
             }
         },

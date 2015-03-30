@@ -13,32 +13,37 @@
     }
 }
 
-@mixin button-group-style($radius:false, $even:false, $float:false, $orientation:horizontal) {
+@mixin button-group-style($radius:false, $even:false, $orientation:horizontal) {
     > button, .button {
-        border-#{$default-float}: $button-group-border-width solid;
-        border-color: rgba(255, 255, 255, 0.5);
+        margin-#{$default-opposite}: 0;
+        border-#{$default-opposite}: 0;
     }
 
     &:first-child {
         button, .button {
-            border-#{$default-float}: 0;
+            border-#{$default-float}-width: $button-border-width;
         }
     }
 
-    @if $float {
-        margin: 0;
-        float: $float;
-        display: list-item;
-        &:first-child {
-            margin-#{$default-float}: 0;
-        }
-    }
-    @else {
-        margin: 0 -2px;
-        float: none;
-        display: inline-block;
-        &:first-child { margin-#{$default-float}: 0; } // Hack to stop the left breaking out of column(s)
-    }
+    margin: 0;
+    float: #{$default-float};
+    display: block;
+    &:first-child { margin-#{$default-float}: 0; }
+
+    // @if $float {
+    //     margin: 0;
+    //     float: $float;
+    //     display: block;
+    //     &:first-child {
+    //         margin-#{$default-float}: 0;
+    //     }
+    // }
+    // @else {
+    //     margin: 0;
+    //     float: left;
+    //     display: block
+    //     &:first-child { margin-#{$default-float}: 0; } // Hack to stop the left breaking out of column(s)
+    // }
 
     @if $orientation == vertical {
         display: block;
@@ -125,8 +130,8 @@
             }
         }
 
-        &.radius > * { @include button-group-style($radius:$button-radius, $float:null); }
-        &.radius.stack > * { @include button-group-style($radius:$button-radius, $float:null, $orientation:vertical); }
+        &.radius > * { @include button-group-style($radius:$button-radius); }
+        &.radius.stack > * { @include button-group-style($radius:$button-radius, $orientation:vertical); }
         &.radius.stack-for-small > * { 
             @media #{$medium-up} {
                 @include button-group-style($radius:$button-radius, $orientation:horizontal);
@@ -136,8 +141,8 @@
             }
         }
 
-        &.round > * { @include button-group-style($radius:$button-round, $float:null); }
-        &.round.stack > * { @include button-group-style($radius:$button-med, $float:null, $orientation:vertical); }
+        &.round > * { @include button-group-style($radius:$button-round); }
+        &.round.stack > * { @include button-group-style($radius:$button-med, $orientation:vertical); }
         &.round.stack-for-small > * { 
             @media #{$medium-up} {
                 @include button-group-style($radius:$button-round, $orientation:horizontal);
@@ -148,12 +153,16 @@
         }
 
         @for $i from 2 through 8 {
-            &.even-#{$i} li { @include button-group-style($even:$i, $float:null); }
+            &.even-#{$i} li { @include button-group-style($even:$i); }
         }
     }
 
     .button-bar {
         @include clearfix;
-        .button-group { @include button-group-container($styles:false,$float:true); }
+        .button-group {
+            float: #{$default-float};
+            margin-#{$default-opposite}: 5px;
+            &:last-child { margin-#{$default-opposite}: 0; }
+        }
     }
 }
