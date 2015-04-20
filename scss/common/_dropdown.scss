@@ -10,17 +10,21 @@
 //@mixin dropdown-container($content:list, $triangle:true, $max-width:$f-dropdown-max-width) {
 @mixin dropdown-container($content:list, $max-width:$f-dropdown-max-width) {
     position: absolute;
-    left: -9999px;
+    left: -9999px; // Default to offscreen but still visible
     list-style: $f-dropdown-list-style;
     margin-#{$default-float}: 0;
     margin-bottom: 0;
+    min-width: 160px;
+    // Gmail shadow
     @include box-shadow(rgba(0, 0, 0, 0.2) 0 2px 4px);
+    //
+    //Twitter bootstrap shadow
+    //@include box-shadow(rgba(0, 0, 0, .175) 0 6px 12px);
 
     > *:first-child { margin-top: 0; }
     > *:last-child { margin-bottom: 0; }
 
     @if $content == list {
-        width: 100%;
         max-height: $f-dropdown-max-height;
         height: $f-dropdown-height;
         background: $f-dropdown-bg;
@@ -30,7 +34,6 @@
     }
     @else if $content == content {
         padding: $f-dropdown-content-padding;
-        width: 100%;
         height: $f-dropdown-height;
         max-height: $f-dropdown-max-height;
         background: $f-dropdown-bg;
@@ -136,8 +139,8 @@
 
     // }
 
-    @if $max-width { max-width: $max-width; }
-    @else { max-width: $f-dropdown-max-width; }
+    // @if $max-width { max-width: $max-width; }
+    // @else { max-width: $f-dropdown-max-width; }
 
 }
 
@@ -152,9 +155,7 @@
     line-height: $f-dropdown-line-height;
     margin: 0;
 
-    &:hover,
-    &:focus { background: $f-dropdown-list-hover-bg; }
-
+    &:hover, &:focus { background: $f-dropdown-list-hover-bg; }
     &.radius { @include radius($f-dropdown-radius); }
 
     a {
@@ -162,11 +163,18 @@
         padding: $f-dropdown-list-padding;
         color: $f-dropdown-font-color;
     }
+    &.divider {
+        height: 1px;
+        margin: 9px 0;
+        overflow: hidden;
+        background-color: $f-dropdown-list-divider-color;
+    }
 }
 
 @include exports("dropdown") {
     /* Foundation Dropdowns */
     .f-dropdown {
+        padding: 5px 0;
         @include dropdown-container(list);
 
         &.drop-#{$default-opposite} {
@@ -189,17 +197,17 @@
         &.content { @include dropdown-container(content); }
 
         // Sizes
-        &.tiny    { max-width: 200px; }
-        &.small   { max-width: 300px; }
-        &.medium  { max-width: 500px; }
-        &.large   { max-width: 800px; }
-        &.mega    {
-            width:100%!important;
-            max-width:100%!important;
+        // &.tiny    { max-width: 200px; }
+        // &.small   { max-width: 300px; }
+        // &.medium  { max-width: 500px; }
+        // &.large   { max-width: 800px; }
+        // &.mega    {
+        //     width:100%!important;
+        //     max-width:100%!important;
 
-            &.open{
-                left:0!important;
-            }
-        }
+        //     &.open{
+        //         left:0!important;
+        //     }
+        // }
     }
 }

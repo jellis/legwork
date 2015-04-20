@@ -28,14 +28,12 @@
     $result: ();
     @each $item in $list {
         @if length($item) > 1 {
-            @debug 'List has length of more than one';
             $flatten: flatten($item);
             
             @each $i in $flatten {
                 $result: append($result, $i, comma);
             }
         } @else {
-            @debug type-of($item);
             $result: append($result, $item, comma);
         }
     }
@@ -65,12 +63,3 @@
     @return if( $normalised == (), $list, $normalised );
 }
 
-$require: () !default;
-@function require-once($module)
-{
-    $module_index: index($require, $module);
-    @if (($module_index == null) or ($module_index == false)) {
-        $require: append($require, $module);
-        @return "#{$module}";
-    }
-}

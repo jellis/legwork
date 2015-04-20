@@ -23,7 +23,7 @@ $global-rounded: 1000px !default;
 
 // Color settings
 //$primary-color: #008CBA !default;
-$primary-color: #2069E7 !default;
+$primary-color: #4D90F9 !default;
 $secondary-color: #E7E7E7 !default;
 //$alert-color: #F04124 !default;
 $alert-color: #D14836 !default;
@@ -569,9 +569,10 @@ $f-dropdown-triangle-side-offset: 10px !default;
 $f-dropdown-list-style: none !default;
 $f-dropdown-font-color: #555555 !default;
 $f-dropdown-font-size: 14px !default;
-$f-dropdown-list-padding: 3px !default;
+$f-dropdown-list-padding: 3px 20px !default;
 $f-dropdown-line-height: 18px !default;
 $f-dropdown-list-hover-bg: #EEEEEE !default;
+$f-dropdown-list-divider-color: #E5E5E5 !default;
 $dropdown-mobile-default-float: 0 !default;
 
 // We use this to control the styles for when the dropdown has custom content.

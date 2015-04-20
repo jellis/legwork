@@ -133,9 +133,7 @@
         },
 
         open: function (dropdown, target) {
-                this
-                    .css(dropdown
-                        .addClass(this.settings.active_class), target);
+                this.css(dropdown.addClass(this.settings.active_class), target);
                 dropdown.prev('[' + this.attr_name() + ']').addClass(this.settings.active_class);
                 dropdown.data('target', target.get(0)).trigger('opened').trigger('opened.fndtn.dropdown', [dropdown, target]);
                 dropdown.attr('aria-hidden', 'false');
@@ -158,8 +156,10 @@
                 return;
             }
 
+            // Close everything that isn't the dropdown we're working with
             this.close.call(this, this.S('[' + this.attr_name() + '-content]').not(dropdown));
 
+            // Close the dropdown in question if it's open
             if (dropdown.hasClass(this.settings.active_class)) {
                 this.close.call(this, dropdown);
                 if (dropdown.data('target') !== target.get(0))
@@ -167,12 +167,12 @@
             } else {
                 var self = this;
                 // Attach listener for pressing esc key
-                this.S(window).on('keyup.dropdown', function(e) {
+                self.S(window).on('keyup.dropdown', function(e) {
                     if (e.keyCode == 27) {
                         self.close.call(self, dropdown);
                     }
                 });
-                this.open.call(this, dropdown, target);
+                self.open.call(self, dropdown, target);
             }
         },
 
@@ -187,21 +187,26 @@
 
         css : function (dropdown, target) {
             var left_offset = Math.max((target.width() - dropdown.width()) / 2, 8),
-                    settings = target.data(this.attr_name(true) + '-init') || this.settings;
+                settings = target.data(this.attr_name(true) + '-init') || this.settings;
 
             this.clear_idx();
 
             if (this.small()) {
+                // Will only be located on bottom on small screens
                 var p = this.dirs.bottom.call(dropdown, target, settings);
 
+                var padding = parseInt($(this.scope).find('.columns, .column').first().css('padding-left'));
+                var portalWidth = parseInt($(this.scope).find('.row:first').width());
+                var dropdownWidth = (portalWidth - (padding * 2));
+
+                // Remove all styles
+                // Make sure it only drops down
                 dropdown.attr('style', '').removeClass('drop-left drop-right drop-top').css({
-                    position : 'absolute',
-                    width: '95%',
-                    'max-width': 'none',
-                    top: p.top
+                    top: p.top,
+                    left: p.left,
+                    width: dropdownWidth
                 });
 
-                dropdown.css(Foundation.rtl ? 'right':'left', left_offset);
             } else {
                 this.style(dropdown, target, settings);
             }
@@ -222,9 +227,9 @@
                 var o_p = this.offsetParent(),
                         o = o_p.offset(),
                         p = t.offset();
-
                 p.top -= o.top;
                 p.left -= o.left;
+                p.width = t.outerWidth();
 
                 return p;
             },
@@ -252,9 +257,10 @@
                 if (t.outerWidth() < this.outerWidth() || self.small() || this.hasClass(s.mega_menu)) {
                     self.adjust_pip(this,t,s,p);
                 }
-
+                
                 if (self.rtl) {
-                    return {left: p.left - this.outerWidth() + t.outerWidth(), top: p.top + t.outerHeight()};
+                    return {left: p.left - this.outerWidth() + t.outerWidth(),
+                        top: p.top + t.outerHeight()};
                 }
 
                 return {left: p.left, top: p.top + t.outerHeight()};
