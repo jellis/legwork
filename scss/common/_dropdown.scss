@@ -210,4 +210,22 @@
         //     }
         // }
     }
+
+    .dropdown-link {
+        position: relative;
+        padding-#{$default-opposite}: 10px;
+        &:after {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 0;
+            display: block;
+            border-style: solid;
+            display: inline;
+            border-color: $primary-color transparent transparent transparent;
+            border-width: $dropdown-button-pip-size-tny;
+            top: 50%;
+            right: 0;
+        }
+    }
 }
