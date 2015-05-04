@@ -278,6 +278,15 @@
                 this.addClass('drop-right');
 
                 return {left: p.left + t.outerWidth(), top: p.top};
+            },
+            bottomright: function (t, s) {
+                var p = Foundation.libs.dropdown.dirs._base.call(this, t);
+
+                this.addClass('drop-bottomright');
+
+                console.log(this);
+
+                return {left: p.left - this.outerWidth() + t.outerWidth(), top: p.top + t.outerHeight()};
             }
         },
 
