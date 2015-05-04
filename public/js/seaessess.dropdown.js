@@ -284,8 +284,6 @@
 
                 this.addClass('drop-bottomright');
 
-                console.log(this);
-
                 return {left: p.left - this.outerWidth() + t.outerWidth(), top: p.top + t.outerHeight()};
             }
         },
