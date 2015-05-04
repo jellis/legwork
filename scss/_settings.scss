@@ -593,6 +593,9 @@ $button-pip-sml: 5px !default;
 $button-pip-med: 8px !default;
 $button-pip-lrg: 12px !default;
 
+// Pip color for dropdown link
+$dropdown-link-pip-color: $primary-color;
+
 // We use these to style tiny dropdown buttons
 $dropdown-button-padding-tny: $button-pip-tny * 7 !default;
 $dropdown-button-pip-size-tny: $button-pip-tny !default;
