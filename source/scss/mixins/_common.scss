@@ -37,7 +37,7 @@ $modules: () !default;
 // $radius - Default: $global-radius || 4px
 @mixin radius($radius:$global-radius) {
     @if $radius {
-        @include border-radius($radius);
+        border-radius: $radius;
     }
 }
 

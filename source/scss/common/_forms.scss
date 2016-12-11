@@ -30,7 +30,7 @@
     height: ($input-font-size + ($form-spacing * 1.5) - 1);
     width: 100%;
 
-    @include box-sizing(border-box);
+    box-sizing: border-box;
     @if $input-include-glowing-effect {
         @include block-glowing-effect(focus, $glowing-effect-fade-time, $glowing-effect-color);
     }

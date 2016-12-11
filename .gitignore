@@ -4,3 +4,4 @@ public/css/*.css
 config.rb
 app.scss
 lt-ie9.scss
+node_modules
