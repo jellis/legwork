@@ -1,8 +1,0 @@
-@charset "UTF-8";
-
-// Float the last one to align the RHS and account for rounding issues
-.column.last-child, .columns.last-child { float: $default-opposite; }
-.column.end, .columns.end { float: $default-float; }
-
-// Get zebra rows happening - because IE
-table tr.even td, table tr.alt td, table tr.even th, table tr.alt th { background-color: $table-even-row-bg; }

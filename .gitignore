@@ -1,6 +1,6 @@
 .DS_Store
-.sass-cache
-public/css/*.css
+public/css
+public/js
 config.rb
 app.scss
 lt-ie9.scss
