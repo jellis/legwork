@@ -2,6 +2,4 @@
 public/css
 public/js
 config.rb
-app.scss
-lt-ie9.scss
 node_modules

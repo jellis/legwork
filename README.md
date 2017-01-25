@@ -1,16 +1,10 @@
 ### SeaEssEss
 
-Light(er) CSS framework initially based on an amalgam of Zurb Foundation 3 and 5... includes IE8 support and some
+Light(er) CSS framework initially based on an amalgam of Zurb Foundation 3 and 5... includes IE9 support and some
 sexy things for forms etc.
 
-### Dependencies
-- SASS
-- Compass
-
-... that's pretty much it at this stage. But I've updated the README.md
-
 ### Items included thus far
-- Modals - animation included because a bind hack has been included... woot!
+- Modals - animation included
 - Alerts (user messages)
 - Flex Video player - AWESOME!
 - Panels... just because
@@ -22,6 +16,7 @@ sexy things for forms etc.
 - Off Canvas menu for mobile/table devices
 
 ### TODO
+- Refactor grid so when a list of sizes is provided they're the only grid items included
 - Ability to include web fonts
 - Refactor js library - currently entirely Foundation namespaced
 - Datepicker

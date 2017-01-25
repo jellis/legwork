@@ -17,6 +17,7 @@ gulp.task('default', ['sass', 'js-compile', 'js']);
 
 // Watch files
 gulp.watch('source/js/**/*.js', ['js-compile', 'js']);
+gulp.watch('source/css/**/*.css', ['sass']);
 
 // Build the css files
 gulp.task('sass', function(){
@@ -34,7 +35,8 @@ gulp.task('js-compile', function(){
     return gulp.src([
         'source/js/jquery.js',
         'source/js/seaessess.js',
-        'source/js/seaessess.modal.js'
+        'source/js/seaessess.modal.js',
+        'sourec/js/seaessess.dropdown.js'
     ])
     .pipe(concat('app.js'))
     .pipe(config.production ? uglify() : util.noop())
